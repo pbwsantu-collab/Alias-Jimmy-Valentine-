@@ -1,0 +1,3590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Alias Jimmy Valentine — O. Henry | Interactive Textbook</title>
+  <meta name="description" content="WBCHSE English Prose: Alias Jimmy Valentine by O. Henry. Interactive reading, Bengali explanations, vocabulary, SAQs, broad questions, and quizzes.">
+  <meta name="theme-color" content="#8B5A2B">
+  <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Alias%20Jimmy%20Valentine%22%2C%22short_name%22%3A%22Jimmy%20Valentine%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23f5efe6%22%2C%22theme_color%22%3A%22%238B5A2B%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%2520xmlns%253D%2522http%253A%2F%2Fwww.w3.org%2F2000%2Fsvg%2522%2520viewBox%253D%25220%25200%252064%252064%2522%253E%253Crect%2520width%253D%252264%2522%2520height%253D%252264%2522%2520fill%253D%2522%25238B5A2B%2522%2F%253E%253Ctext%2520x%253D%252232%2522%2520y%253D%252242%2522%2520font-size%253D%252236%2522%2520text-anchor%253D%2522middle%2522%2520fill%253D%2522white%2522%253EJV%253C%2Ftext%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%2264x64%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%7D%5D%7D">
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --bg: #f5efe6;
+      --surface: #fffaf3;
+      --surface2: #f0e8d8;
+      --text: #2c2416;
+      --text-light: #5a4a3a;
+      --accent: #8B5A2B;
+      --accent-light: #c49a6c;
+      --accent-dark: #5e3a1a;
+      --gold: #b8860b;
+      --red: #a52a2a;
+      --green: #2e6b4a;
+      --shadow: rgba(0,0,0,0.08);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --font: 'Georgia', 'Times New Roman', serif;
+      --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      --font-bn: 'Noto Sans Bengali', 'Segoe UI', sans-serif;
+      --transition: 0.25s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg: #1a1612;
+      --surface: #25201a;
+      --surface2: #322c24;
+      --text: #e8ddd0;
+      --text-light: #b8a898;
+      --accent: #c49a6c;
+      --accent-light: #8B5A2B;
+      --accent-dark: #dbb88a;
+      --shadow: rgba(0,0,0,0.3);
+    }
+
+    [data-theme="dark"] .parchment {
+      background: var(--surface);
+      border-color: #4a3a2a;
+    }
+
+    /* ===== RESET & BASE ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+      padding-bottom: 80px;
+      transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
+    }
+
+    body.high-contrast {
+      --bg: #000;
+      --surface: #111;
+      --surface2: #222;
+      --text: #fff;
+      --text-light: #ddd;
+      --accent: #ffd700;
+      --accent-light: #ffed4a;
+      --shadow: rgba(255,255,255,0.1);
+    }
+
+    body.reduced-motion * {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1, h2, h3, h4 { font-family: var(--font); font-weight: 700; line-height: 1.3; }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); color: var(--accent-dark); }
+    h2 { font-size: clamp(1.4rem, 3.5vw, 2rem); color: var(--accent); margin-bottom: 0.8rem; }
+    h3 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--accent-dark); margin-bottom: 0.5rem; }
+    p { margin-bottom: 0.8rem; }
+
+    .bn { font-family: var(--font-bn); }
+
+    /* ===== LAYOUT ===== */
+    .app-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16px;
+      position: relative;
+    }
+
+    .view { display: none; animation: fadeIn 0.35s ease; }
+    .view.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== TOP BAR ===== */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--accent-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .top-bar .title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .top-bar .actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .icon-btn {
+      background: var(--surface2);
+      border: 1px solid var(--accent-light);
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: var(--transition);
+      color: var(--text);
+    }
+
+    .icon-btn:hover { background: var(--accent); color: #fff; transform: scale(1.05); }
+
+    /* ===== BOTTOM NAV ===== */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-top: 1px solid var(--accent-light);
+      display: flex;
+      justify-content: space-around;
+      padding: 6px 0 max(6px, env(safe-area-inset-bottom));
+      z-index: 200;
+      box-shadow: 0 -4px 16px var(--shadow);
+    }
+
+    .bottom-nav button {
+      background: none;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      font-size: 0.65rem;
+      font-family: var(--font-sans);
+      color: var(--text-light);
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      min-width: 60px;
+    }
+
+    .bottom-nav button.active {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .bottom-nav button .nav-icon { font-size: 1.4rem; }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      text-align: center;
+      padding: 40px 16px 30px;
+      position: relative;
+      background: linear-gradient(160deg, var(--surface) 0%, var(--surface2) 100%);
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+      overflow: hidden;
+      border: 1px solid var(--accent-light);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(184,134,11,0.06) 0%, transparent 60%);
+      animation: shimmer 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { transform: translate(0,0); }
+      50% { transform: translate(10px, -10px); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 7vw, 3.2rem);
+      color: var(--accent-dark);
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .hero .author {
+      font-size: 1.3rem;
+      color: var(--gold);
+      font-style: italic;
+      margin-top: 4px;
+      letter-spacing: 1px;
+      position: relative;
+    }
+
+    .hero .subtitle {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      max-width: 500px;
+      margin: 12px auto 0;
+      font-style: italic;
+      position: relative;
+    }
+
+    .hero .ornament {
+      font-size: 2rem;
+      color: var(--accent-light);
+      margin: 12px 0;
+      letter-spacing: 8px;
+    }
+
+    .start-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 40px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-family: var(--font);
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 6px 20px rgba(139,90,43,0.35);
+      position: relative;
+    }
+
+    .start-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(139,90,43,0.45); }
+    .start-btn:active { transform: translateY(0); }
+
+    /* ===== CARDS GRID ===== */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--accent-light);
+      border-radius: var(--radius);
+      padding: 18px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 8px var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px var(--shadow);
+      border-color: var(--accent);
+    }
+
+    .card .card-icon { font-size: 2rem; }
+    .card .card-title { font-size: 0.85rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+    .card .card-desc { font-size: 0.7rem; color: var(--text-light); }
+
+    .card .badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: var(--gold);
+      color: #fff;
+      font-size: 0.55rem;
+      padding: 2px 6px;
+      border-radius: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== PARCHMENT / CONTENT BOX ===== */
+    .parchment {
+      background: var(--surface);
+      border: 1px solid var(--accent-light);
+      border-radius: var(--radius);
+      padding: 20px 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 12px var(--shadow);
+      position: relative;
+    }
+
+    .parchment::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-light), var(--gold), var(--accent-light));
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .page-label {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.7rem;
+      font-family: var(--font-sans);
+      padding: 2px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    /* ===== CLICKABLE WORDS ===== */
+    .word {
+      cursor: pointer;
+      border-bottom: 1px dashed transparent;
+      transition: var(--transition);
+      padding: 1px 2px;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .word:hover, .word:focus {
+      background: rgba(184,134,11,0.15);
+      border-bottom-color: var(--gold);
+      outline: none;
+    }
+
+    .word.highlighted {
+      background: rgba(184,134,11,0.3);
+      border-bottom: 2px solid var(--gold);
+    }
+
+    /* ===== VOCABULARY POPUP ===== */
+    .vocab-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 500;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      animation: fadeIn 0.2s ease;
+      backdrop-filter: blur(3px);
+    }
+
+    .vocab-overlay.active { display: flex; }
+
+    .vocab-card {
+      background: var(--surface);
+      border-radius: var(--radius) var(--radius) 0 0;
+      padding: 24px 20px max(24px, env(safe-area-inset-bottom));
+      width: 100%;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      animation: slideUp 0.3s ease;
+      box-shadow: 0 -8px 40px rgba(0,0,0,0.3);
+      border-top: 4px solid var(--accent);
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
+    .vocab-card .vocab-word {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .vocab-card .vocab-pron {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      font-family: var(--font-sans);
+    }
+
+    .vocab-card .vocab-pos {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-family: var(--font-sans);
+      font-weight: 700;
+    }
+
+    .vocab-card .vocab-row {
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px solid var(--surface2);
+    }
+
+    .vocab-card .vocab-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      font-weight: 700;
+      font-family: var(--font-sans);
+    }
+
+    .vocab-card .vocab-value { font-size: 1rem; margin-top: 4px; }
+
+    .vocab-card .bn-value {
+      font-family: var(--font-bn);
+      font-size: 1.05rem;
+      color: var(--accent-dark);
+      font-weight: 500;
+    }
+
+    .vocab-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: var(--surface2);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .vocab-close:hover { background: var(--accent); color: #fff; }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(139,90,43,0.3);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(139,90,43,0.4); }
+
+    .btn-secondary {
+      background: var(--surface2);
+      color: var(--text);
+      border: 1px solid var(--accent-light);
+    }
+
+    .btn-secondary:hover { background: var(--accent-light); color: #fff; }
+
+    .btn-sm { padding: 6px 14px; font-size: 0.78rem; }
+
+    .btn-group { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+
+    /* ===== PAGE NAVIGATION ===== */
+    .page-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 16px 0;
+      padding: 8px 0;
+      border-top: 1px solid var(--surface2);
+      border-bottom: 1px solid var(--surface2);
+    }
+
+    .page-nav .page-indicator {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-family: var(--font-sans);
+      text-align: center;
+    }
+
+    /* ===== EXPLAIN BUTTON ===== */
+    .explain-btn {
+      background: transparent;
+      border: 1px dashed var(--accent-light);
+      color: var(--accent);
+      font-size: 0.75rem;
+      padding: 2px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: var(--transition);
+      margin-top: 6px;
+    }
+
+    .explain-btn:hover { background: var(--accent); color: #fff; border-style: solid; }
+
+    .explanation-box {
+      background: var(--surface2);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 14px 16px;
+      margin-top: 8px;
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .explanation-box.active { display: block; }
+
+    .explanation-box .exp-en { font-size: 0.95rem; color: var(--text); }
+    .explanation-box .exp-bn { font-family: var(--font-bn); font-size: 1rem; color: var(--accent-dark); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--surface); }
+
+    /* ===== FOOTNOTES ===== */
+    .footnotes {
+      background: var(--surface2);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      margin-top: 16px;
+      font-size: 0.85rem;
+    }
+
+    .footnotes .fn-title {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      font-family: var(--font-sans);
+    }
+
+    .footnote {
+      display: flex;
+      gap: 8px;
+      padding: 4px 0;
+      cursor: pointer;
+      border-bottom: 1px dotted transparent;
+      transition: var(--transition);
+    }
+
+    .footnote:hover { border-bottom-color: var(--accent); background: rgba(184,134,11,0.08); border-radius: 4px; padding-left: 4px; }
+
+    .footnote .fn-num {
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 24px;
+      font-size: 0.8rem;
+    }
+
+    .footnote .fn-text { flex: 1; }
+
+    /* ===== CHARACTER CARDS ===== */
+    .char-card {
+      background: var(--surface);
+      border: 1px solid var(--accent-light);
+      border-radius: var(--radius);
+      padding: 18px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 8px var(--shadow);
+      transition: var(--transition);
+    }
+
+    .char-card:hover { box-shadow: 0 6px 20px var(--shadow); }
+
+    .char-card .char-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .char-card .char-avatar {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .char-card .char-name { font-size: 1.15rem; font-weight: 700; color: var(--accent-dark); }
+    .char-card .char-role { font-size: 0.8rem; color: var(--text-light); font-style: italic; }
+
+    .char-card .char-section { margin-top: 10px; }
+    .char-card .char-section .char-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      font-weight: 700;
+      font-family: var(--font-sans);
+      margin-bottom: 3px;
+    }
+
+    /* ===== THEME CARDS ===== */
+    .theme-card {
+      background: var(--surface);
+      border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 16px 18px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px var(--shadow);
+      transition: var(--transition);
+    }
+
+    .theme-card:hover { transform: translateX(4px); }
+
+    .theme-card .theme-title { font-size: 1.05rem; font-weight: 700; color: var(--accent-dark); display: flex; align-items: center; gap: 8px; }
+
+    /* ===== TIMELINE ===== */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+      margin: 20px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 12px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--accent-light), var(--accent), var(--accent-light));
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 18px;
+      padding: 10px 14px;
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--surface2);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .timeline-item:hover { border-color: var(--accent); box-shadow: 0 2px 12px var(--shadow); }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -26px;
+      top: 16px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--accent-light);
+    }
+
+    .timeline-item .tl-title { font-weight: 700; color: var(--accent-dark); font-size: 0.95rem; }
+    .timeline-item .tl-bn { font-family: var(--font-bn); font-size: 0.9rem; color: var(--text-light); margin-top: 4px; }
+
+    /* ===== QUIZ ===== */
+    .quiz-option {
+      display: block;
+      width: 100%;
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      background: var(--surface);
+      border: 2px solid var(--surface2);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: left;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .quiz-option:hover { border-color: var(--accent-light); background: var(--surface2); }
+    .quiz-option.correct { border-color: var(--green); background: rgba(46,107,74,0.12); }
+    .quiz-option.wrong { border-color: var(--red); background: rgba(165,42,42,0.12); }
+    .quiz-option.disabled { pointer-events: none; opacity: 0.8; }
+
+    .quiz-feedback {
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      margin-top: 12px;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .quiz-feedback.active { display: block; }
+    .quiz-feedback.correct { background: rgba(46,107,74,0.15); border-left: 4px solid var(--green); }
+    .quiz-feedback.wrong { background: rgba(165,42,42,0.15); border-left: 4px solid var(--red); }
+
+    /* ===== PROGRESS ===== */
+    .progress-ring {
+      width: 80px;
+      height: 80px;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .progress-ring svg { transform: rotate(-90deg); width: 80px; height: 80px; }
+    .progress-ring circle { fill: none; stroke-width: 6; }
+    .progress-ring .bg-circle { stroke: var(--surface2); }
+    .progress-ring .fg-circle { stroke: var(--accent); stroke-linecap: round; transition: stroke-dashoffset 0.6s ease; }
+    .progress-ring .pct { position: absolute; font-size: 1rem; font-weight: 700; color: var(--accent-dark); }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .stat-item {
+      background: var(--surface2);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      text-align: center;
+    }
+
+    .stat-item .stat-num { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+    .stat-item .stat-label { font-size: 0.7rem; color: var(--text-light); font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* ===== SEARCH ===== */
+    .search-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 2px solid var(--surface2);
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-family: var(--font-sans);
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-bar input:focus { border-color: var(--accent); }
+
+    .search-result {
+      background: var(--surface);
+      border: 1px solid var(--surface2);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .search-result:hover { border-color: var(--accent); }
+    .search-result .sr-type { font-size: 0.65rem; text-transform: uppercase; color: var(--accent); font-weight: 700; font-family: var(--font-sans); letter-spacing: 1px; }
+    .search-result .sr-text { font-size: 0.9rem; margin-top: 4px; }
+    .search-result mark { background: rgba(184,134,11,0.3); padding: 0 2px; border-radius: 2px; }
+
+    /* ===== TOAST ===== */
+    .toast {
+      position: fixed;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--accent-dark);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-family: var(--font-sans);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      z-index: 600;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      white-space: nowrap;
+    }
+
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ===== TTS CONTROLS ===== */
+    .tts-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 10px 14px;
+      background: var(--surface2);
+      border-radius: var(--radius-sm);
+      margin-bottom: 12px;
+    }
+
+    .tts-bar button {
+      background: var(--surface);
+      border: 1px solid var(--accent-light);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: var(--transition);
+      color: var(--text);
+    }
+
+    .tts-bar button:hover { background: var(--accent); color: #fff; }
+    .tts-bar select { padding: 6px 10px; border-radius: 20px; border: 1px solid var(--accent-light); background: var(--surface); color: var(--text); font-size: 0.8rem; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 480px) {
+      .card-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .card { padding: 14px 8px; }
+      .card .card-icon { font-size: 1.6rem; }
+      .card .card-title { font-size: 0.75rem; }
+      .parchment { padding: 16px 12px; }
+      .vocab-card { padding: 20px 16px max(20px, env(safe-area-inset-bottom)); }
+    }
+
+    @media (min-width: 768px) {
+      .card-grid { grid-template-columns: repeat(3, 1fr); }
+      .app-container { padding: 24px; }
+      .hero { padding: 60px 40px 40px; }
+    }
+
+    @media (min-width: 1024px) {
+      .card-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--surface2); }
+    ::-webkit-scrollbar-thumb { background: var(--accent-light); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+    /* ===== PRINT ===== */
+    @media print {
+      .top-bar, .bottom-nav, .btn, .explain-btn, .tts-bar, .icon-btn { display: none !important; }
+      body { padding-bottom: 0; background: #fff; color: #000; }
+      .parchment { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+      .view { display: block !important; }
+    }
+
+    /* ===== MISC ===== */
+    .hidden { display: none !important; }
+    .text-center { text-align: center; }
+    .mt-1 { margin-top: 8px; }
+    .mt-2 { margin-top: 16px; }
+    .mb-1 { margin-bottom: 8px; }
+    .mb-2 { margin-bottom: 16px; }
+    .flex { display: flex; }
+    .flex-wrap { flex-wrap: wrap; }
+    .gap-1 { gap: 8px; }
+    .items-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .section-header .sh-icon { font-size: 1.6rem; }
+    .section-header h2 { margin-bottom: 0; }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
+      margin: 20px 0;
+    }
+
+    /* ===== LOADING ===== */
+    .skeleton {
+      background: linear-gradient(90deg, var(--surface2) 25%, var(--surface) 50%, var(--surface2) 75%);
+      background-size: 200% 100%;
+      animation: skeleton 1.5s infinite;
+      border-radius: var(--radius-sm);
+      height: 20px;
+      margin-bottom: 8px;
+    }
+
+    @keyframes skeleton {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* ===== ACHIEVEMENT ===== */
+    .achievement {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, var(--gold), #daa520);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-family: var(--font-sans);
+      box-shadow: 0 2px 8px rgba(184,134,11,0.4);
+      margin: 4px;
+    }
+
+    .streak-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: linear-gradient(135deg, #ff6b35, #f7931e);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: var(--font-sans);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="top-bar">
+  <div class="title" onclick="navigateTo('home')">
+    <span>📖</span> Alias Jimmy Valentine
+  </div>
+  <div class="actions">
+    <button class="icon-btn" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle dark mode">🌓</button>
+    <button class="icon-btn" onclick="toggleContrast()" title="High contrast" aria-label="High contrast mode">◐</button>
+    <button class="icon-btn" onclick="navigateTo('search')" title="Search" aria-label="Search">🔍</button>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTAINER ===== -->
+<div class="app-container">
+
+  <!-- ===== HOME VIEW ===== -->
+  <div id="view-home" class="view active">
+    <div class="hero">
+      <div class="ornament">❦ ❦ ❦</div>
+      <h1>ALIAS JIMMY VALENTINE</h1>
+      <div class="author">— O. HENRY —</div>
+      <p class="subtitle">"From Criminal to a New Life — A Story of Love, Redemption and Transformation"</p>
+      <button class="start-btn" onclick="navigateTo('read')">✦ START LEARNING ✦</button>
+    </div>
+
+    <div class="card-grid">
+      <div class="card" onclick="navigateTo('read')">
+        <span class="card-icon">📖</span>
+        <span class="card-title">Read the Story</span>
+        <span class="card-desc">Full text with clickable words</span>
+      </div>
+      <div class="card" onclick="navigateTo('saq')">
+        <span class="card-icon">📝</span>
+        <span class="card-title">SAQs</span>
+        <span class="card-desc">Short answer questions</span>
+      </div>
+      <div class="card" onclick="navigateTo('broad')">
+        <span class="card-icon">📚</span>
+        <span class="card-title">Broad Questions</span>
+        <span class="card-desc">Long answer practice</span>
+      </div>
+      <div class="card" onclick="navigateTo('critical')">
+        <span class="card-icon">🔍</span>
+        <span class="card-title">Critical Analysis</span>
+        <span class="card-desc">Deep literary analysis</span>
+      </div>
+      <div class="card" onclick="navigateTo('author')">
+        <span class="card-icon">👤</span>
+        <span class="card-title">About the Author</span>
+        <span class="card-desc">O. Henry's life & works</span>
+      </div>
+      <div class="card" onclick="navigateTo('vocab')">
+        <span class="card-icon">🧠</span>
+        <span class="card-title">Vocabulary</span>
+        <span class="card-desc">Searchable word bank</span>
+      </div>
+      <div class="card" onclick="navigateTo('themes')">
+        <span class="card-icon">💡</span>
+        <span class="card-title">Themes & Characters</span>
+        <span class="card-desc">Interactive cards</span>
+      </div>
+      <div class="card" onclick="navigateTo('quiz')">
+        <span class="card-icon">🎯</span>
+        <span class="card-title">Exam Practice</span>
+        <span class="card-desc">MCQs & quizzes</span>
+      </div>
+      <div class="card" onclick="navigateTo('progress')">
+        <span class="card-icon">📊</span>
+        <span class="card-title">Progress</span>
+        <span class="card-desc">Track your learning</span>
+      </div>
+      <div class="card" onclick="navigateTo('revision')">
+        <span class="card-icon">⭐</span>
+        <span class="card-title">Important Questions</span>
+        <span class="card-desc">Exam-focused revision</span>
+      </div>
+    </div>
+
+    <div class="parchment">
+      <h2 style="text-align:center;">✨ Story at a Glance ✨</h2>
+      <p style="text-align:center; font-style:italic; color:var(--text-light);">
+        Jimmy Valentine, a skilled safecracker, is released from prison. He resolves to reform, moves to Elmore, and becomes Ralph D. Spencer, a respected shoe-store owner. He falls in love with Annabel Adams and plans to marry her. But when Annabel's niece gets trapped in a bank vault, Jimmy must use his old criminal skills to save her — risking his new life. Detective Ben Price, who has been tracking him, witnesses the rescue and lets him go free.
+      </p>
+      <div class="divider"></div>
+      <p class="bn" style="text-align:center; color:var(--text-light);">
+        জিমি ভ্যালেন্টাইন নামে একজন দক্ষ সিন্দুক-ভাঙা কারাগার থেকে মুক্তি পায়। সে নতুন জীবন শুরু করার সংকল্প নিয়ে এলমোরে গিয়ে রালফ ডি. স্পেনসার নামে একজন সম্মানিত জুতার দোকানের মালিক হয়ে ওঠে। সে অ্যানাবেল অ্যাডামসের প্রেমে পড়ে এবং তাকে বিয়ে করার পরিকল্পনা করে। কিন্তু যখন অ্যানাবেলের ভাগ্নি ব্যাংকের ভল্টে আটকে যায়, জিমিকে তার পুরনো অপরাধমূলক দক্ষতা ব্যবহার করে তাকে বাঁচাতে হয় — নিজের নতুন জীবন ঝুঁকিতে ফেলে। গোয়েন্দা বেন প্রাইস, যে তাকে অনুসরণ করছিল, উদ্ধারকাজ দেখে তাকে মুক্তি দেয়।
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== ABOUT AUTHOR VIEW ===== -->
+  <div id="view-author" class="view">
+    <div class="section-header">
+      <span class="sh-icon">👤</span>
+      <h2>About the Author</h2>
+    </div>
+
+    <div class="parchment">
+      <h3>O. HENRY</h3>
+      <p><strong>Born William Sydney Porter (1862-1910)</strong>, O. Henry is one of America's most beloved short story writers, renowned for his clever narrative techniques, humor, and unexpected twist endings. His life was marked by diverse experiences, including stints as a pharmacist, banker, and prisoner, which provided rich material for his stories. After serving a prison sentence for embezzlement, he adopted the pseudonym O. Henry and began writing prolifically. His works often capture the struggles and dreams of ordinary people during the late 19th and early 20th centuries, blending wit, irony, and sentimentality. Notable stories such as <em>The Gift of the Magi</em>, <em>The Last Leaf</em>, and <em>The Ransom of Red Chief</em> showcase his mastery of storytelling and his ability to evoke deep emotions. O. Henry's enduring appeal lies in his ability to transform mundane situations into poignant reflections of human nature. He passed away in 1910, leaving a legacy of literary brilliance.</p>
+    </div>
+
+    <div class="parchment">
+      <h3>📘 Easy Explanation</h3>
+      <p>O. Henry was the pen name of William Sydney Porter. He had a very interesting life — he worked as a pharmacist, a bank clerk, and even spent time in prison. This gave him a deep understanding of ordinary people and their struggles. He became famous for his short stories with surprising endings. His stories are full of humour, irony, and warmth. He wrote about common people, their hopes, and their dreams. His most famous stories include <em>The Gift of the Magi</em>, <em>The Last Leaf</em>, and <em>The Ransom of Red Chief</em>. He died in 1910, but his stories are still loved by readers all over the world.</p>
+      <div class="explanation-box active" style="margin-top:10px;">
+        <div class="exp-bn">
+          <strong>বাংলা ব্যাখ্যা:</strong> ও. হেনরি ছিলেন উইলিয়াম সিডনি পোর্টারের ছদ্মনাম। তিনি একজন ফার্মাসিস্ট, ব্যাংক কেরানি এবং এমনকি কারাগারে সময় কাটিয়েছিলেন। এই অভিজ্ঞতা তাকে সাধারণ মানুষের জীবন ও সংগ্রাম সম্পর্কে গভীর ধারণা দেয়। তিনি তার চমকপ্রদ সমাপ্তির জন্য বিখ্যাত ছিলেন। তার গল্পে হাস্যরস, বিদ্রূপ এবং উষ্ণতা রয়েছে। তিনি সাধারণ মানুষের আশা ও স্বপ্ন নিয়ে লিখেছেন। তার বিখ্যাত গল্পগুলির মধ্যে রয়েছে <em>The Gift of the Magi</em>, <em>The Last Leaf</em>, এবং <em>The Ransom of Red Chief</em>। ১৯১০ সালে তিনি মারা যান, কিন্তু তার গল্পগুলি আজও বিশ্বজুড়ে পাঠকদের প্রিয়।
+        </div>
+      </div>
+    </div>
+
+    <div class="parchment">
+      <h3>📌 Key Facts</h3>
+      <div class="stat-grid">
+        <div class="stat-item">
+          <div class="stat-num">1862</div>
+          <div class="stat-label">Born</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">1910</div>
+          <div class="stat-label">Died</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">O. Henry</div>
+          <div class="stat-label">Pen Name</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">300+</div>
+          <div class="stat-label">Short Stories</div>
+        </div>
+      </div>
+      <ul style="margin-top:12px; padding-left:20px;">
+        <li><strong>Real Name:</strong> William Sydney Porter</li>
+        <li><strong>Birth:</strong> September 11, 1862, Greensboro, North Carolina</li>
+        <li><strong>Death:</strong> June 5, 1910, New York City</li>
+        <li><strong>Professions:</strong> Pharmacist, Banker, Journalist, Writer</li>
+        <li><strong>Famous Stories:</strong> The Gift of the Magi, The Last Leaf, The Ransom of Red Chief, Alias Jimmy Valentine</li>
+        <li><strong>Writing Style:</strong> Witty, ironic, sentimental, surprising twist endings</li>
+        <li><strong>Literary Characteristics:</strong> O. Henry endings, humour, compassion for ordinary people, vivid characterization</li>
+      </ul>
+    </div>
+    <button class="btn btn-secondary" onclick="navigateTo('home')">← Back to Home</button>
+  </div>
+
+  <!-- ===== ABOUT TEXT VIEW ===== -->
+  <div id="view-about" class="view">
+    <div class="section-header">
+      <span class="sh-icon">📚</span>
+      <h2>About the Text</h2>
+    </div>
+
+    <div class="parchment">
+      <p>Published in 1903, O. Henry's <em>Alias Jimmy Valentine</em> is a quintessential example of the author's storytelling genius, blending themes of redemption, love, and irony. The story revolves around Jimmy Valentine, a skilled safecracker who, after serving prison time, resolves to reform his life. Establishing himself as Ralph D. Spencer, a respectable businessman, Jimmy finds love and builds a new identity. However, his past resurfaces when he uses his safecracking skills to rescue a trapped child, risking exposure and imprisonment. O. Henry masterfully crafts the climax with a twist: the pursuing detective, touched by Jimmy's selflessness, lets him go free. The narrative's wit, emotional depth, and insight into human nature highlight O. Henry's skill in creating relatable characters and moral dilemmas. <em>Alias Jimmy Valentine</em> remains a timeless story, celebrated for its blend of realism, irony, and the redemptive power of love.</p>
+    </div>
+
+    <div class="parchment">
+      <h3>📖 Story at a Glance</h3>
+      <p><strong>English:</strong> Jimmy Valentine is a skilled safecracker released from prison. He moves to Elmore, changes his name to Ralph D. Spencer, and becomes a respectable shoe-store owner. He falls in love with Annabel Adams and decides to give up crime. But when Annabel's niece is trapped in a bank vault, Jimmy uses his old skills to save her, revealing his true identity. Detective Ben Price, who has been tracking him, lets him go free.</p>
+      <div class="explanation-box active" style="margin-top:10px;">
+        <div class="exp-bn">
+          <strong>বাংলা:</strong> জিমি ভ্যালেন্টাইন একজন দক্ষ সিন্দুক-ভাঙা, যাকে কারাগার থেকে মুক্তি দেওয়া হয়। সে এলমোরে গিয়ে রালফ ডি. স্পেনসার নাম ধারণ করে একজন সম্মানিত জুতার দোকানের মালিক হয়ে ওঠে। সে অ্যানাবেল অ্যাডামসের প্রেমে পড়ে এবং অপরাধ ত্যাগ করার সিদ্ধান্ত নেয়। কিন্তু যখন অ্যানাবেলের ভাগ্নি ব্যাংকের ভল্টে আটকে যায়, জিমি তার পুরনো দক্ষতা ব্যবহার করে তাকে বাঁচায়, ফলে তার আসল পরিচয় প্রকাশ পায়। গোয়েন্দা বেন প্রাইস, যে তাকে অনুসরণ করছিল, তাকে মুক্তি দেয়।
+        </div>
+      </div>
+    </div>
+
+    <div class="parchment">
+      <h3>🎯 Central Idea</h3>
+      <p><strong>English:</strong> The central idea of <em>Alias Jimmy Valentine</em> is that love and compassion can transform a person. Jimmy, a hardened criminal, changes his life after falling in love with Annabel. His selfless act of saving Agatha shows that he has truly reformed. The story also explores the themes of redemption, second chances, and the conflict between justice and mercy.</p>
+      <div class="explanation-box active" style="margin-top:10px;">
+        <div class="exp-bn">
+          <strong>বাংলা:</strong> <em>Alias Jimmy Valentine</em>-এর কেন্দ্রীয় ভাবনা হল প্রেম ও সহানুভূতি একজন মানুষকে পরিবর্তন করতে পারে। জিমি, একজন কঠোর অপরাধী, অ্যানাবেলের প্রেমে পড়ে তার জীবন পরিবর্তন করে। অ্যাগাথাকে বাঁচানোর তার নিঃস্বার্থ কাজ প্রমাণ করে যে সে সত্যিই সংস্কার করেছে। গল্পটি মুক্তি, দ্বিতীয় সুযোগ এবং ন্যায়বিচার ও ক্ষমার দ্বন্দ্বের বিষয়েও আলোচনা করে।
+        </div>
+      </div>
+    </div>
+
+    <div class="parchment">
+      <h3>📐 Story Structure</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="tl-title">1. Beginning — Jimmy's Release</div>
+          <div class="tl-bn">জিমির মুক্তি: কারাগার থেকে ছাড়া পাওয়া এবং তার পুরনো সরঞ্জাম সংগ্রহ।</div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-title">2. Development — New Life in Elmore</div>
+          <div class="tl-bn">এলমোরে নতুন জীবন: রালফ ডি. স্পেনসার হিসেবে প্রতিষ্ঠা, অ্যানাবেলের সাথে প্রেম।</div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-title">3. Conflict — Past vs. Present</div>
+          <div class="tl-bn">দ্বন্দ্ব: পুরনো জীবন বনাম নতুন জীবন, বেন প্রাইসের অনুসরণ।</div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-title">4. Climax — The Vault Rescue</div>
+          <div class="tl-bn">চরম মুহূর্ত: অ্যাগাথা ভল্টে আটকে যায়, জিমি তার পুরনো দক্ষতা ব্যবহার করে তাকে বাঁচায়।</div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-title">5. Resolution — Ben Price Lets Him Go</div>
+          <div class="tl-bn">সমাধান: বেন প্রাইস তাকে চিনতে পেরেও মুক্তি দেয়, জিমির নৈতিক রূপান্তর সম্পূর্ণ হয়।</div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-secondary" onclick="navigateTo('home')">← Back to Home</button>
+  </div>
+
+  <!-- ===== READ VIEW ===== -->
+  <div id="view-read" class="view">
+    <div class="section-header">
+      <span class="sh-icon">📖</span>
+      <h2>Read the Complete Text</h2>
+    </div>
+
+    <div class="tts-bar">
+      <button onclick="ttsPlay()" title="Play" aria-label="Play">▶</button>
+      <button onclick="ttsPause()" title="Pause" aria-label="Pause">⏸</button>
+      <button onclick="ttsStop()" title="Stop" aria-label="Stop">⏹</button>
+      <select id="ttsSpeed" onchange="ttsSetSpeed(this.value)">
+        <option value="0.75">0.75x</option>
+        <option value="1" selected>1x</option>
+        <option value="1.25">1.25x</option>
+        <option value="1.5">1.5x</option>
+      </select>
+      <span style="font-size:0.75rem; color:var(--text-light); margin-left:auto;">Text-to-Speech</span>
+    </div>
+
+    <div class="flex justify-between items-center mb-2 flex-wrap gap-1">
+      <div class="btn-group">
+        <button class="btn btn-sm btn-secondary" onclick="adjustFontSize(-1)" aria-label="Decrease font size">A-</button>
+        <button class="btn btn-sm btn-secondary" onclick="adjustFontSize(1)" aria-label="Increase font size">A+</button>
+        <button class="btn btn-sm btn-secondary" onclick="toggleReadingMode()" aria-label="Toggle reading mode">📖 Reading Mode</button>
+      </div>
+      <div class="page-indicator" id="pageIndicator">Page 68 of 9</div>
+    </div>
+
+    <div id="readingContent">
+      <!-- Pages will be rendered by JavaScript -->
+    </div>
+
+    <div class="page-nav">
+      <button class="btn btn-secondary" onclick="prevPage()">← Previous Page</button>
+      <span class="page-indicator" id="pageNavIndicator">68</span>
+      <button class="btn btn-primary" onclick="nextPage()">Next Page →</button>
+    </div>
+
+    <div class="flex gap-1 flex-wrap mt-2">
+      <button class="btn btn-sm btn-secondary" onclick="bookmarkPage()">🔖 Bookmark Page</button>
+      <button class="btn btn-sm btn-secondary" onclick="copyPage()">📋 Copy Page</button>
+      <button class="btn btn-sm btn-secondary" onclick="printPage()">🖨 Print Page</button>
+    </div>
+  </div>
+
+  <!-- ===== VOCABULARY VIEW ===== -->
+  <div id="view-vocab" class="view">
+    <div class="section-header">
+      <span class="sh-icon">🧠</span>
+      <h2>Vocabulary Bank</h2>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" id="vocabSearch" placeholder="Search words..." oninput="searchVocab(this.value)" aria-label="Search vocabulary">
+    </div>
+
+    <div class="flex gap-1 flex-wrap mb-2">
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('all')">All</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('A')">A</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('B')">B</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('C')">C</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('D')">D</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('E')">E</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('F')">F</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('G')">G</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('H')">H</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('I')">I</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('J')">J</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('K')">K</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('L')">L</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('M')">M</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('N')">N</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('O')">O</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('P')">P</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('Q')">Q</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('R')">R</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('S')">S</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('T')">T</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('U')">U</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('V')">V</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('W')">W</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('X')">X</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('Y')">Y</button>
+      <button class="btn btn-sm btn-secondary" onclick="filterVocab('Z')">Z</button>
+    </div>
+
+    <div id="vocabList">
+      <!-- Vocabulary items rendered by JS -->
+    </div>
+  </div>
+
+  <!-- ===== CHARACTERS VIEW ===== -->
+  <div id="view-characters" class="view">
+    <div class="section-header">
+      <span class="sh-icon">🎭</span>
+      <h2>Character Analysis</h2>
+    </div>
+
+    <div id="charactersList">
+      <!-- Characters rendered by JS -->
+    </div>
+    <button class="btn btn-secondary" onclick="navigateTo('home')">← Back to Home</button>
+  </div>
+
+  <!-- ===== THEMES VIEW ===== -->
+  <div id="view-themes" class="view">
+    <div class="section-header">
+      <span class="sh-icon">💡</span>
+      <h2>Themes</h2>
+    </div>
+
+    <div id="themesList">
+      <!-- Themes rendered by JS -->
+    </div>
+    <button class="btn btn-secondary" onclick="navigateTo('home')">← Back to Home</button>
+  </div>
+
+  <!-- ===== CRITICAL ANALYSIS VIEW ===== -->
+  <div id="view-critical" class="view">
+    <div class="section-header">
+      <span class="sh-icon">🔍</span>
+      <h2>Critical Analysis</h2>
+    </div>
+
+    <div id="criticalList">
+      <!-- Critical analysis rendered by JS -->
+    </div>
+    <button class="btn btn-secondary" onclick="navigateTo('home')">← Back to Home</button>
+  </div>
+
+  <!-- ===== SAQ VIEW ===== -->
+  <div id="view-saq" class="view">
+    <div class="section-header">
+      <span class="sh-icon">📝</span>
+      <h2>Short Answer Questions (SAQs)</h2>
+    </div>
+
+    <div id="saqList">
+      <!-- SAQs rendered by JS -->
+    </div>
+    <button class="btn btn-secondary" onclick="navigateTo('home')">← Back to Home</button>
+  </div>
+
+  <!-- ===== BROAD QUESTIONS VIEW ===== -->
+  <div id="view-broad" class="view">
+    <div class="section-header">
+      <span class="sh-icon">📚</span>
+      <h2>Broad Questions</h2>
+    </div>
+
+    <div id="broadList">
+      <!-- Broad questions rendered by JS -->
+    </div>
+    <button class="btn btn-secondary" onclick="navigateTo('home')">← Back to Home</button>
+  </div>
+
+  <!-- ===== QUIZ VIEW ===== -->
+  <div id="view-quiz" class="view">
+    <div class="section-header">
+      <span class="sh-icon">🎯</span>
+      <h2>Quiz & Exam Practice</h2>
+    </div>
+
+    <div id="quizContainer">
+      <div class="parchment">
+        <h3>Select Quiz Category</h3>
+        <div class="card-grid" style="grid-template-columns:repeat(2,1fr);">
+          <div class="card" onclick="startQuiz('vocab')">
+            <span class="card-icon">📖</span>
+            <span class="card-title">Vocabulary</span>
+          </div>
+          <div class="card" onclick="startQuiz('story')">
+            <span class="card-icon">📜</span>
+            <span class="card-title">Story</span>
+          </div>
+          <div class="card" onclick="startQuiz('characters')">
+            <span class="card-icon">🎭</span>
+            <span class="card-title">Characters</span>
+          </div>
+          <div class="card" onclick="startQuiz('themes')">
+            <span class="card-icon">💡</span>
+            <span class="card-title">Themes</span>
+          </div>
+          <div class="card" onclick="startQuiz('events')">
+            <span class="card-icon">📅</span>
+            <span class="card-title">Events</span>
+          </div>
+          <div class="card" onclick="startQuiz('literary')">
+            <span class="card-icon">✍️</span>
+            <span class="card-title">Literary Devices</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="quizActive" class="hidden">
+      <div class="parchment">
+        <div class="flex justify-between items-center mb-2">
+          <span id="quizProgress" style="font-size:0.85rem; color:var(--text-light);">Question 1/10</span>
+          <span id="quizScore" style="font-size:0.85rem; color:var(--accent); font-weight:700;">Score: 0</span>
+        </div>
+        <h3 id="quizQuestion" style="margin-bottom:16px;">Question text</h3>
+        <div id="quizOptions"></div>
+        <div id="quizFeedback" class="quiz-feedback"></div>
+        <div class="flex gap-1 mt-2">
+          <button class="btn btn-primary" id="quizNextBtn" onclick="nextQuizQuestion()" style="display:none;">Next →</button>
+          <button class="btn btn-secondary" onclick="endQuiz()">End Quiz</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="quizResults" class="hidden">
+      <div class="parchment text-center">
+        <h3>🎉 Quiz Complete!</h3>
+        <div class="stat-grid">
+          <div class="stat-item">
+            <div class="stat-num" id="resultScore">0</div>
+            <div class="stat-label">Score</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" id="resultPercent">0%</div>
+            <div class="stat-label">Percentage</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" id="resultCorrect">0</div>
+            <div class="stat-label">Correct</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" id="resultWrong">0</div>
+            <div class="stat-label">Wrong</div>
+          </div>
+        </div>
+        <p id="resultMessage" style="margin-top:12px; font-style:italic;"></p>
+        <div class="btn-group" style="justify-content:center;">
+          <button class="btn btn-primary" onclick="startQuiz(currentQuizCategory)">🔄 Retry</button>
+          <button class="btn btn-secondary" onclick="navigateTo('quiz')">📚 Other Quizzes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== REVISION VIEW ===== -->
+  <div id="view-revision" class="view">
+    <div class="section-header">
+      <span class="sh-icon">⭐</span>
+      <h2>Revision Mode</h2>
+    </div>
+
+    <div class="flex gap-1 flex-wrap mb-2">
+      <button class="btn btn-sm btn-primary" onclick="showRevision('1min')">⏱ 1-Minute Revision</button>
+      <button class="btn btn-sm btn-secondary" onclick="showRevision('5min')">⏱ 5-Minute Revision</button>
+      <button class="btn btn-sm btn-secondary" onclick="showRevision('full')">📋 Full Revision</button>
+    </div>
+
+    <div id="revisionContent">
+      <div class="parchment">
+        <h3>📌 Story in 10 Points</h3>
+        <ol style="padding-left:20px;">
+          <li>Jimmy Valentine is released from prison after serving time for safecracking.</li>
+          <li>He collects his hidden set of burglar's tools and resumes his old life.</li>
+          <li>He commits three burglaries, and detective Ben Price recognizes his methods.</li>
+          <li>Jimmy travels to Elmore, a small town in Arkansas.</li>
+          <li>He meets Annabel Adams and falls in love with her at first sight.</li>
+          <li>He changes his name to Ralph D. Spencer and opens a shoe store.</li>
+          <li>He decides to give up crime and writes to his friend to give away his tools.</li>
+          <li>Ben Price tracks him to Elmore and observes him.</li>
+          <li>Annabel's niece Agatha gets trapped in the new bank vault.</li>
+          <li>Jimmy uses his safecracking skills to rescue her; Ben Price lets him go free.</li>
+        </ol>
+      </div>
+
+      <div class="parchment">
+        <h3>🎭 Characters</h3>
+        <ul style="padding-left:20px;">
+          <li><strong>Jimmy Valentine / Ralph D. Spencer:</strong> A skilled safecracker who reforms after falling in love.</li>
+          <li><strong>Annabel Adams:</strong> The banker's daughter who loves Jimmy and inspires his change.</li>
+          <li><strong>Ben Price:</strong> The detective who tracks Jimmy but ultimately lets him go.</li>
+          <li><strong>Mr. Adams:</strong> Annabel's father, a typical country banker.</li>
+          <li><strong>Agatha:</strong> Annabel's young niece who gets trapped in the vault.</li>
+          <li><strong>May:</strong> Agatha's older sister who accidentally locks her in.</li>
+        </ul>
+      </div>
+
+      <div class="parchment">
+        <h3>💡 Themes</h3>
+        <ul style="padding-left:20px;">
+          <li>Love as a transformative force</li>
+          <li>Redemption and second chances</li>
+          <li>Identity and change</li>
+          <li>Justice vs. mercy</li>
+          <li>Crime and honesty</li>
+        </ul>
+      </div>
+
+      <div class="parchment">
+        <h3>🔑 Important Vocabulary</h3>
+        <ul style="padding-left:20px;">
+          <li>Rehabilitate — to restore to a good life</li>
+          <li>Elusive — difficult to catch</li>
+          <li>Cracksman — a burglar who breaks safes</li>
+          <li>Retribution — punishment</li>
+          <li>Specious — misleading but plausible</li>
+          <li>Guile — cunning deceit</li>
+        </ul>
+      </div>
+    </div>
+    <button class="btn btn-secondary" onclick="navigateTo('home')">← Back to Home</button>
+  </div>
+
+  <!-- ===== PROGRESS VIEW ===== -->
+  <div id="view-progress" class="view">
+    <div class="section-header">
+      <span class="sh-icon">📊</span>
+      <h2>Your Progress</h2>
+    </div>
+
+    <div class="parchment text-center">
+      <div class="progress-ring" id="progressRing">
+        <svg viewBox="0 0 80 80">
+          <circle class="bg-circle" cx="40" cy="40" r="34"></circle>
+          <circle class="fg-circle" cx="40" cy="40" r="34" id="progressCircle" stroke-dasharray="213.6" stroke-dashoffset="213.6"></circle>
+        </svg>
+        <span class="pct" id="progressPct">0%</span>
+      </div>
+      <p style="margin-top:8px; font-size:0.9rem; color:var(--text-light);">Overall Learning Progress</p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-item">
+        <div class="stat-num" id="statPagesRead">0</div>
+        <div class="stat-label">Pages Read</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" id="statVocabLearned">0</div>
+        <div class="stat-label">Words Learned</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" id="statQuizScore">0</div>
+        <div class="stat-label">Quiz Best</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" id="statBookmarks">0</div>
+        <div class="stat-label">Bookmarks</div>
+      </div>
+    </div>
+
+    <div class="parchment">
+      <h3>🏆 Achievements</h3>
+      <div id="achievementsList">
+        <span class="achievement">🌟 First Steps</span>
+      </div>
+    </div>
+
+    <div class="parchment">
+      <h3>🔥 Daily Streak</h3>
+      <p>Current streak: <span class="streak-badge">🔥 <span id="streakCount">0</span> days</span></p>
+    </div>
+
+    <button class="btn btn-secondary" onclick="resetProgress()">🔄 Reset Progress</button>
+    <button class="btn btn-secondary" onclick="navigateTo('home')">← Back to Home</button>
+  </div>
+
+  <!-- ===== SEARCH VIEW ===== -->
+  <div id="view-search" class="view">
+    <div class="section-header">
+      <span class="sh-icon">🔍</span>
+      <h2>Search</h2>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" id="globalSearch" placeholder="Search text, vocabulary, questions..." oninput="globalSearch(this.value)" aria-label="Global search">
+    </div>
+
+    <div id="searchResults">
+      <p style="color:var(--text-light); font-style:italic;">Type to search across the entire lesson.</p>
+    </div>
+    <button class="btn btn-secondary" onclick="navigateTo('home')">← Back to Home</button>
+  </div>
+
+  <!-- ===== TEACHER'S RESOURCE VIEW ===== -->
+  <div id="view-teacher" class="view">
+    <div class="section-header">
+      <span class="sh-icon">👩‍🏫</span>
+      <h2>Teacher's Resource</h2>
+    </div>
+
+    <div class="parchment">
+      <h3>📋 Printable Question Bank</h3>
+      <div class="btn-group">
+        <button class="btn btn-primary" onclick="printQuestions()">🖨 Print SAQs</button>
+        <button class="btn btn-primary" onclick="printBroadQuestions()">🖨 Print Broad Questions</button>
+        <button class="btn btn-secondary" onclick="printRevisionSheet()">🖨 Print Revision Sheet</button>
+      </div>
+    </div>
+
+    <div class="parchment">
+      <h3>📝 Important SAQs for Exam</h3>
+      <ol style="padding-left:20px;">
+        <li>How did Jimmy enjoy his first joys of liberty?</li>
+        <li>What were the signature characteristics of Jimmy Valentine?</li>
+        <li>How did Agatha get trapped in the vault?</li>
+        <li>How was Agatha saved?</li>
+        <li>Why did Jimmy decide to give up his old life?</li>
+        <li>What was Ben Price's opinion about Jimmy's methods?</li>
+      </ol>
+    </div>
+
+    <div class="parchment">
+      <h3>📚 Important Broad Questions</h3>
+      <ol style="padding-left:20px;">
+        <li>Trace the phoenix-like transformation of Jimmy Valentine.</li>
+        <li>How did Agatha get trapped in the vault? How was she saved?</li>
+        <li>Discuss the theme of redemption in <em>Alias Jimmy Valentine</em>.</li>
+        <li>How does O. Henry use irony and twist ending in the story?</li>
+      </ol>
+    </div>
+    <button class="btn btn-secondary" onclick="navigateTo('home')">← Back to Home</button>
+  </div>
+
+  <!-- ===== INSTALL BUTTON ===== -->
+  <div id="installBanner" class="hidden" style="position:fixed; bottom:80px; left:16px; right:16px; z-index:300;">
+    <div class="parchment" style="display:flex; align-items:center; gap:12px; padding:12px 16px;">
+      <span style="font-size:1.5rem;">📱</span>
+      <div style="flex:1;">
+        <strong style="font-size:0.9rem;">Install App</strong>
+        <p style="font-size:0.75rem; color:var(--text-light); margin:0;">For offline access & better experience</p>
+      </div>
+      <button class="btn btn-primary btn-sm" onclick="installPWA()">Install</button>
+      <button class="icon-btn" onclick="dismissInstall()" style="width:32px;height:32px;font-size:0.9rem;">✕</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== VOCAB POPUP ===== -->
+<div class="vocab-overlay" id="vocabOverlay" onclick="closeVocab(event)">
+  <div class="vocab-card" id="vocabCard" onclick="event.stopPropagation()">
+    <button class="vocab-close" onclick="closeVocab()" aria-label="Close">✕</button>
+    <div id="vocabContent"></div>
+  </div>
+</div>
+
+<!-- ===== BOTTOM NAV ===== -->
+<div class="bottom-nav">
+  <button onclick="navigateTo('home')" id="nav-home" class="active">
+    <span class="nav-icon">🏠</span>
+    <span>Home</span>
+  </button>
+  <button onclick="navigateTo('read')" id="nav-read">
+    <span class="nav-icon">📖</span>
+    <span>Read</span>
+  </button>
+  <button onclick="navigateTo('vocab')" id="nav-learn">
+    <span class="nav-icon">🧠</span>
+    <span>Learn</span>
+  </button>
+  <button onclick="navigateTo('saq')" id="nav-questions">
+    <span class="nav-icon">📝</span>
+    <span>Questions</span>
+  </button>
+  <button onclick="navigateTo('progress')" id="nav-progress">
+    <span class="nav-icon">📊</span>
+    <span>Progress</span>
+  </button>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   DATA: STORY PAGES (Full text from textbook)
+   ============================================================ */
+const STORY_PAGES = [
+  {
+    page: 68,
+    title: "About the Author & About the Text",
+    content: `
+      <div class="page-label">Page 68</div>
+      <h3>Alias Jimmy Valentine</h3>
+      <p style="color:var(--gold); font-style:italic; margin-bottom:16px;">O. HENRY</p>
+
+      <h4>About the Author :</h4>
+      <p>Born William Sydney Porter (1862-1910), O. Henry is one of America's most beloved short story writers, renowned for his clever narrative techniques, humor, and unexpected twist endings. His life was marked by diverse experiences, including stints as a pharmacist, banker, and prisoner, which provided rich material for his stories. After serving a prison sentence for embezzlement, he adopted the pseudonym O. Henry and began writing prolifically. His works often capture the struggles and dreams of ordinary people during the late 19th and early 20th centuries, blending wit, irony, and sentimentality. Notable stories such as <em>The Gift of the Magi</em>, <em>The Last Leaf</em>, and <em>The Ransom of Red Chief</em> showcase his mastery of storytelling and his ability to evoke deep emotions. O. Henry's enduring appeal lies in his ability to transform mundane situations into poignant reflections of human nature. He passed away in 1910, leaving a legacy of literary brilliance.</p>
+
+      <h4>About the Text :</h4>
+      <p>Published in 1903, O. Henry's <em>Alias Jimmy Valentine</em> is a quintessential example of the author's storytelling genius, blending themes of redemption, love, and irony. The story revolves around Jimmy Valentine, a skilled safecracker who, after serving prison time, resolves to reform his life. Establishing himself as Ralph D. Spencer, a respectable businessman, Jimmy finds love and builds a new identity. However, his past resurfaces when he uses his safecracking skills to rescue a trapped child, risking exposure and imprisonment. O. Henry masterfully crafts the climax with a twist: the pursuing detective, touched by Jimmy's selflessness, lets him go free. The narrative's wit, emotional depth, and insight into human nature highlight O. Henry's skill in creating relatable characters and moral dilemmas. <em>Alias Jimmy Valentine</em> remains a timeless story, celebrated for its blend of realism, irony, and the redemptive power of love.</p>
+    `
+  },
+  {
+    page: 70,
+    title: "Jimmy's Release and Old Habits",
+    content: `
+      <div class="page-label">Page 70</div>
+      <p>The clerk handed him a railroad ticket and the five-dollar bill with which the law expected him to <span class="word" data-word="rehabilitate">rehabilitate</span><sup>8</sup> himself into good citizenship and prosperity. The warden gave him a cigar, and shook hands. Valentine, 9762, was chronicled on the books "Pardoned by Governor," and Mr. James Valentine walked out into the sunshine.</p>
+
+      <p><span class="word" data-word="disregarding">Disregarding</span><sup>9</sup> the song of the birds, the waving green trees, and the smell of the flowers, Jimmy headed straight for a restaurant. There he tasted the first sweet joys of liberty in the shape of a broiled chicken and a bottle of white wine-followed by a cigar a grade better than the one the warden had given him. From there he proceeded leisurely to the depot. He tossed a quarter into the hat of a blind man sitting by the door, and boarded his train. Three hours set him down in a little town near the state line. He went to the cafe of one Mike Dolan and shook hands with Mike, who was alone behind the bar.</p>
+
+      <p>"Sorry we couldn't make it sooner, Jimmy, me boy," said Mike. "But we had that protest from Springfield to <span class="word" data-word="buck against">buck against</span><sup>10</sup>, and the governor nearly <span class="word" data-word="balked">balked</span><sup>11</sup>. Feeling all right?"</p>
+
+      <p>"Fine," said Jimmy. "Got my key?"</p>
+
+      <p>He got his key and went upstairs, unlocking the door of a room at the rear. Everything was just as he had left it. There on the floor was still Ben Price's collar-button that had been torn from that eminent detective's shirt-band when they had overpowered Jimmy to arrest him.</p>
+
+      <p>Pulling out from the wall a folding-bed, Jimmy slid back a panel in the wall and dragged out a dust-covered suit-case. He opened this and gazed fondly at the finest set of burglar's tools in the East. It was a complete set, made of specially tempered steel, the latest designs in drills, punches, braces and bits, <span class="word" data-word="jimmies">jimmies</span><sup>12</sup>, clamps, and <span class="word" data-word="augers">augers</span><sup>13</sup>, with two or three novelties, invented by Jimmy himself, in which he took pride. Over nine hundred dollars they had cost him to have made at-, a place where they make such things for the profession.</p>
+
+      <div class="footnotes">
+        <div class="fn-title">📖 Footnotes</div>
+        <div class="footnote" onclick="showVocab('rehabilitate')"><span class="fn-num">8</span><span class="fn-text">Rehabilitate : to help someone to live a good and useful life once again.</span></div>
+        <div class="footnote" onclick="showVocab('disregarding')"><span class="fn-num">9</span><span class="fn-text">Disregarding : ignoring.</span></div>
+        <div class="footnote" onclick="showVocab('buck against')"><span class="fn-num">10</span><span class="fn-text">To buck against : to oppose something.</span></div>
+        <div class="footnote" onclick="showVocab('balked')"><span class="fn-num">11</span><span class="fn-text">Balked : stopped.</span></div>
+        <div class="footnote" onclick="showVocab('jimmies')"><span class="fn-num">12</span><span class="fn-text">Jimmies : American word for short metal bars used to break open windows.</span></div>
+        <div class="footnote" onclick="showVocab('augers')"><span class="fn-num">13</span><span class="fn-text">Augers : tools used for making holes in wood or in the ground.</span></div>
+      </div>
+    `
+  },
+  {
+    page: 71,
+    title: "Jimmy's New Identity and Burglaries",
+    content: `
+      <div class="page-label">Page 71</div>
+      <p>In half an hour Jimmy went downstairs and through the cafe. He was now dressed in tasteful and well-fitting clothes, and carried his dusted and cleaned suit-case in his hand.</p>
+
+      <p>"Got anything on?" asked Mike Dolan, genially.</p>
+
+      <p>"Me?" said Jimmy, in a puzzled tone. "I don't understand. I'm representing the New York Amalgamated Short Snap Biscuit Cracker and Frazzled Wheat Company."</p>
+
+      <p>This statement delighted Mike to such an extent that Jimmy had to take a <span class="word" data-word="seltzer">seltzer</span><sup>14</sup>-and-milk on the spot. He never touched "hard" drinks.</p>
+
+      <p>A week after the release of Valentine, 9762, there was a neat job of safe-burglary done in Richmond, Indiana, with no clue to the author. A scant eight hundred dollars was all that was secured. Two weeks after that a patented, improved, burglar-proof safe in Logansport was <span class="word" data-word="opened like a cheese">opened like a cheese</span><sup>15</sup> to the tune of fifteen hundred dollars, currency; securities and silver untouched. That began to interest the rogue-catchers. Then an old-fashioned bank-safe in Jefferson City became active and threw out of its crater an eruption of bank-notes amounting to five thousand dollars. The losses were now high enough to bring the matter up into Ben Price's class of work. By comparing notes, a remarkable similarity in the methods of the burglaries was noticed. Ben Price investigated the scenes of the robberies, and was heard to remark:</p>
+
+      <p>"That's Dandy Jim Valentine's autograph. He's resumed business. Look at that combination knob-jerked out as easy as pulling up a radish in wet weather. He's got the only clamps that can do it. And look how clean those tumblers were punched out! Jimmy never has to drill but one hole. Yes, I guess I want Mr. Valentine. He'll do his bit next time without any short-time or <span class="word" data-word="clemency">clemency</span><sup>16</sup>foolishness."</p>
+
+      <p>Ben Price knew Jimmy's habits. He had learned them while working on the Springfield case. Long jumps, quick get-aways, no <span class="word" data-word="confederates">confederates</span><sup>17</sup>, and a taste for good society-these ways had helped Mr. Valentine to become noted as a successful <span class="word" data-word="dodger of retribution">dodger of retribution</span><sup>18</sup>. It was given out that Ben Price had taken up the trail of the elusive cracksman, and other people with burglar-proof safes felt more at ease.</p>
+
+      <div class="footnotes">
+        <div class="fn-title">📖 Footnotes</div>
+        <div class="footnote" onclick="showVocab('seltzer')"><span class="fn-num">14</span><span class="fn-text">Seltzer : water that contains small bubbles.</span></div>
+        <div class="footnote" onclick="showVocab('opened like a cheese')"><span class="fn-num">15</span><span class="fn-text">Opened like a cheese : (slang) opened very easily.</span></div>
+        <div class="footnote" onclick="showVocab('clemency')"><span class="fn-num">16</span><span class="fn-text">Clemency : pardon.</span></div>
+        <div class="footnote" onclick="showVocab('confederates')"><span class="fn-num">17</span><span class="fn-text">Confederates : partners in crime.</span></div>
+        <div class="footnote" onclick="showVocab('dodger of retribution')"><span class="fn-num">18</span><span class="fn-text">Dodger of retribution : one who escapes severe punishment.</span></div>
+      </div>
+    `
+  },
+  {
+    page: 72,
+    title: "Jimmy Arrives in Elmore",
+    content: `
+      <div class="page-label">Page 72</div>
+      <p>One afternoon Jimmy Valentine and his suit-case climbed out of the mail-hack in Elmore, a little town five miles off the railroad down in the black-jack country of Arkansas. Jimmy, looking like an athletic young senior just home from college, went down the board side-walk toward the hotel.</p>
+
+      <p>A young lady crossed the street, passed him at the corner and entered a door over which was the sign "The Elmore Bank." Jimmy Valentine looked into her eyes, forgot what he was, and became another man. She lowered her eyes and colored slightly. Young men of Jimmy's style and looks were scarce in Elmore.</p>
+
+      <p>Jimmy <span class="word" data-word="collared">collared</span><sup>19</sup> a boy that was loafing on the steps of the bank as if he were one of the stockholders, and began to ask him questions about the town, feeding him dimes at intervals. By and by the young lady came out, looking royally unconscious of the young man with the suit-case, and went her way.</p>
+
+      <p>"Isn't that young lady Miss Polly Simpson?" asked Jimmy, with <span class="word" data-word="specious">specious</span><sup>20</sup> <span class="word" data-word="guile">guile</span><sup>21</sup>.</p>
+
+      <p>"Naw," said the boy. "She's Annabel Adams. Her pa owns this bank. What'd you come to Elmore for? Is that a gold watch-chain? I'm going to get a bulldog. Got any more dimes?"</p>
+
+      <p>Jimmy went to the Planters' Hotel, registered as Ralph D. Spencer, and engaged a room. He leaned on the desk and declared his platform to the clerk. He said he had come to Elmore to look for a location to go into business. How was the shoe business, now, in the town? He had thought of the shoe business. Was there an opening?</p>
+
+      <div class="footnotes">
+        <div class="fn-title">📖 Footnotes</div>
+        <div class="footnote" onclick="showVocab('collared')"><span class="fn-num">19</span><span class="fn-text">Collared : caught hold of.</span></div>
+        <div class="footnote" onclick="showVocab('specious')"><span class="fn-num">20</span><span class="fn-text">Specious : seeming to be true or correct, but actually false.</span></div>
+        <div class="footnote" onclick="showVocab('guile')"><span class="fn-num">21</span><span class="fn-text">Guile : the use of clever but dishonest methods to deceive someone.</span></div>
+      </div>
+    `
+  },
+  {
+    page: 73,
+    title: "Ralph D. Spencer Prospers",
+    content: `
+      <div class="page-label">Page 73</div>
+      <p>The clerk was impressed by the clothes and manner of Jimmy. He, himself, was something of a pattern of fashion to the thinly gilded youth of Elmore, but he now perceived his shortcomings. While trying to figure out Jimmy's manner of tying his <span class="word" data-word="four-in-hand">four-in-hand</span><sup>22</sup> he cordially gave information.</p>
+
+      <p>Yes, there ought to be a good opening in the shoe line. There wasn't an exclusive shoe-store in the place. The dry-goods and general stores handled them. Business in all lines was fairly good. Hoped Mr. Spencer would decide to locate in Elmore. He would find it a pleasant town to live in, and the people very sociable.</p>
+
+      <p>Mr. Spencer thought he would stop over in the town a few days and look over the situation. No, the clerk needn't call the boy. He would carry up his suit-case, himself; it was rather heavy.</p>
+
+      <p>Mr. Ralph Spencer, <span class="word" data-word="the phoenix">the phoenix</span><sup>23</sup> that arose from Jimmy Valentine's ashes-ashes left by the flame of a sudden and <span class="word" data-word="alterative">alterative</span><sup>24</sup> attack of love-remained in Elmore, and prospered. He opened a shoe-store and secured a good run of trade.</p>
+
+      <p>Socially he was also a success, and made many friends. And he accomplished the wish of his heart. He met Miss Annabel Adams, and became more and more captivated by her charms.</p>
+
+      <p>At the end of a year the situation of Mr. Ralph Spencer was this: he had won the respect of the community, his shoe-store was flourishing, and he and Annabel were engaged to be married in two weeks. Mr. Adams, the typical, plodding, country banker, approved of Spencer. Annabel's pride in him almost equaled her affection. He was as much at home in the family of Mr. Adams and that of Annabel's married sister as if he were already a member.</p>
+
+      <div class="footnotes">
+        <div class="fn-title">📖 Footnotes</div>
+        <div class="footnote" onclick="showVocab('four-in-hand')"><span class="fn-num">22</span><span class="fn-text">Four-in-hand : a method of tying or knotting a necktie.</span></div>
+        <div class="footnote" onclick="showVocab('the phoenix')"><span class="fn-num">23</span><span class="fn-text">The phoenix....Ashes : the successful man who emerged from the failures of his past.</span></div>
+        <div class="footnote" onclick="showVocab('alterative')"><span class="fn-num">24</span><span class="fn-text">Alterative : something that alters or changes a person.</span></div>
+      </div>
+    `
+  },
+  {
+    page: 74,
+    title: "Jimmy's Letter and Ben Price's Arrival",
+    content: `
+      <div class="page-label">Page 74</div>
+      <p>One day Jimmy sat down in his room and wrote this letter, which he mailed to the safe address of one of his old friends in St. Louis:</p>
+
+      <p style="font-style:italic; background:var(--surface2); padding:12px; border-radius:8px;">Dear Old Pal:<br>
+      I want you to be at Sullivan's place, in Little Rock, next Wednesday night, at nine o'clock. I want you to wind up some little matters for me. And, also, I want to make you a present of my kit of tools. I know you'll be glad to get them-you couldn't duplicate the lot for a thousand dollars. Say, Billy, I've quit the old business-a year ago. I've got a nice store. I'm making an honest living, and I'm going to marry the finest girl on earth two weeks from now. It's the only life, Billy-the straight one. I wouldn't touch a dollar of another man's money now for a million. After I get married I'm going to sell out and go West, where there won't be so much danger of having old scores brought up against me. I tell you, Billy, she's an angel. She believes in me; and I wouldn't do another crooked thing for the whole world. Be sure to be at Sully's, for I must see you. I'll bring along the tools with me.<br>
+      Your old friend,<br>
+      Jimmy.</p>
+
+      <p>On the Monday night after Jimmy wrote this letter, Ben Price jogged <span class="word" data-word="unobtrusively">unobtrusively</span><sup>25</sup> into Elmore in a <span class="word" data-word="livery buggy">livery buggy</span><sup>26</sup>. He lounged about town in his quiet way until he found out what he wanted to know. From the drug-store across the street from Spencer's shoe-store he got a good look at Ralph D. Spencer.</p>
+
+      <p>"Going to marry the banker's daughter are you, Jimmy?" said Ben to himself, softly. "Well, I don't know!"</p>
+
+      <p>The next morning Jimmy took breakfast at the Adamses. He was going to Little Rock that day to order his wedding-suit and buy something nice for Annabel. That would be the first time he had left town since he came to Elmore. It had been more than a year now since those last professional "jobs," and he thought he could safely venture out.</p>
+
+      <div class="footnotes">
+        <div class="fn-title">📖 Footnotes</div>
+        <div class="footnote" onclick="showVocab('unobtrusively')"><span class="fn-num">25</span><span class="fn-text">Unobtrusively : unnoticed.</span></div>
+        <div class="footnote" onclick="showVocab('livery buggy')"><span class="fn-num">26</span><span class="fn-text">Livery buggy: horse and carriage.</span></div>
+      </div>
+    `
+  },
+  {
+    page: 75,
+    title: "The Vault and Agatha's Entrapment",
+    content: `
+      <div class="page-label">Page 75</div>
+      <p>After breakfast quite a family party went downtown together-Mr. Adams, Annabel, Jimmy, and Annabel's married sister with her two little girls, aged five and nine. They came by the hotel where Jimmy still boarded, and he ran up to his room and brought along his suit-case. Then they went on to the bank. There stood Jimmy's horse and buggy and Dolph Gibson, who was going to drive him over to the railroad station.</p>
+
+      <p>All went inside the high, carved oak railings into the banking-room- Jimmy included, for Mr. Adams's future son-in-law was welcome anywhere. The clerks were pleased to be greeted by the good-looking, agreeable young man who was going to marry Miss Annabel. Jimmy set his suit-case down. Annabel, whose heart was bubbling with happiness and lively youth, put on Jimmy's hat, and picked up the suit-case. "Wouldn't I make a nice drummer?" said Annabel. "My! Ralph, how heavy it is. Feels like it was full of gold bricks."</p>
+
+      <p>"Lot of nickel-plated shoe-horns in there," said Jimmy, coolly, "that I'm going to return. Thought I'd save express charges by taking them up. I'm getting awfully economical."</p>
+
+      <p>The Elmore Bank had just put in a new safe and vault. Mr. Adams was very proud of it, and insisted on an inspection by every one. The vault was a small one, but it had a new, <span class="word" data-word="patented">patented</span><sup>27</sup> door. It fastened with three solid steel bolts thrown simultaneously with a single handle, and had a time-lock. Mr. Adams beamingly explained its workings to Mr. Spencer, who showed a courteous but not too intelligent interest. The two children, May and Agatha, were delighted by the shining metal and funny clock and knobs.</p>
+
+      <p>While they were thus engaged Ben Price <span class="word" data-word="sauntered">sauntered</span><sup>28</sup> in and leaned on his elbow, looking casually inside between the railings. He told the teller that he didn't want anything; he was just waiting for a man he knew.</p>
+
+      <p>Suddenly there was a scream or two from the women, and a commotion. Unperceived by the elders, May, the nine-year-old girl, in a spirit of play, had shut Agatha in the vault. She had then shot the bolts and turned the knob of the combination as she had seen Mr. Adams do.</p>
+
+      <div class="footnotes">
+        <div class="fn-title">📖 Footnotes</div>
+        <div class="footnote" onclick="showVocab('patented')"><span class="fn-num">27</span><span class="fn-text">Patented: exclusive.</span></div>
+        <div class="footnote" onclick="showVocab('sauntered')"><span class="fn-num">28</span><span class="fn-text">Sauntered: walk in casually.</span></div>
+      </div>
+    `
+  },
+  {
+    page: 76,
+    title: "The Climax — Jimmy's Sacrifice",
+    content: `
+      <div class="page-label">Page 76</div>
+      <p>The old banker sprang to the handle and tugged at it for a moment. "The door can't be opened," he groaned. "The clock hasn't been wound nor the combination set."</p>
+
+      <p>Agatha's mother screamed again, hysterically.</p>
+
+      <p>"Hush!" said Mr. Adams, raising his trembling hand. "All be quite for a moment. Agatha!" he called as loudly as he could. "Listen to me." During the following silence they could just hear the faint sound of the child wildly shrieking in the dark vault in a panic of terror.</p>
+
+      <p>"My precious darling!" wailed the mother. "She will die of fright! Open the door! Oh, break it open! Can't you men do something?"</p>
+
+      <p>"There isn't a man nearer than Little Rock who can open that door," said Mr. Adams, in a shaky voice. "My God! Spencer, what shall we do? That child-she can't stand it long in there. There isn't enough air, and, besides, she'll go into convulsions from fright."</p>
+
+      <p>Agatha's mother, frantic now, beat the door of the vault with her hands. Somebody wildly suggested dynamite. Annabel turned to Jimmy, her large eyes full of anguish, but not yet despairing. To a woman nothing seems quite impossible to the powers of the man she worships.</p>
+
+      <p>"Can't you do something, Ralph-try, won't you?"</p>
+
+      <p>He looked at her with a queer, soft smile on his lips and in his keen eyes.</p>
+
+      <p>"Annabel," he said, "give me that rose you are wearing, will you?"</p>
+
+      <p>Hardly believing that she heard him aright, she unpinned the bud from the bosom of her dress, and placed it in his hand. Jimmy stuffed it into his vest-pocket, threw off his coat and pulled up his shirt-sleeves. With that act Ralph D. Spencer passed away and Jimmy Valentine took his place.</p>
+
+      <p>"Get away from the door, all of you," he commanded, shortly.</p>
+
+      <p>He set his suit-case on the table, and opened it out flat. From that time on he seemed to be unconscious of the presence of any one else. He laid out the shining, queer implements swiftly and orderly, whistling softly to himself as he always did when at work. In a deep silence and immovable, the others watched him as if under a spell.</p>
+    `
+  },
+  {
+    page: 77,
+    title: "Resolution — Ben Price Lets Him Go",
+    content: `
+      <div class="page-label">Page 77</div>
+      <p>In a minute Jimmy's pet drill was biting smoothly into the steel door. In ten minutes-breaking his own burglarious record-he threw back the bolts and opened the door.</p>
+
+      <p>Agatha, almost collapsed, but safe, was gathered into her mother's arms.</p>
+
+      <p>Jimmy Valentine put on his coat, and walked outside the railings toward the front door. As he went he thought he heard a far-away voice that he once knew call "Ralph!" But he never hesitated.</p>
+
+      <p>At the door a big man stood somewhat in his way.</p>
+
+      <p>"Hello, Ben!" said Jimmy, still with his strange smile. "Got around at last, have you? Well, let's go. I don't know that it makes much difference, now."</p>
+
+      <p>And then Ben Price acted rather strangely.</p>
+
+      <p>"Guess you're mistaken, Mr. Spencer," he said. "Don't believe I recognize you. Your buggy's waiting for you, ain't it?"</p>
+
+      <p>And Ben Price turned and strolled down the street.</p>
+
+      <div class="parchment" style="margin-top:20px;">
+        <h3>📝 Insight Check</h3>
+        <p><strong>A. Answer the following briefly:</strong></p>
+        <ol style="padding-left:20px;">
+          <li>How did Jimmy enjoy his first joys of liberty? <span style="color:var(--text-light);">(2)</span></li>
+          <li>What were the signature characteristics of Jimmy Valentine? <span style="color:var(--text-light);">(2)</span></li>
+        </ol>
+        <p style="margin-top:12px;"><strong>B. Answer in detail:</strong></p>
+        <ol style="padding-left:20px;">
+          <li>How did Agatha get trapped in the vault? How was she saved? <span style="color:var(--text-light);">(3+3)</span></li>
+          <li>Trace the phoenix like transformation of Jimmy Valentine. <span style="color:var(--text-light);">(6)</span></li>
+        </ol>
+      </div>
+    `
+  }
+];
+
+/* ============================================================
+   DATA: VOCABULARY
+   ============================================================ */
+const VOCABULARY = {
+  "rehabilitate": {
+    word: "rehabilitate",
+    pronunciation: "/ˌriːəˈbɪlɪteɪt/",
+    pos: "Verb",
+    bn: "পুনর্বাসিত করা / আবার ভালো ও কার্যকর জীবনে ফিরিয়ে আনা",
+    en: "To help someone return to a useful and respectable life.",
+    context: "Jimmy is expected to become a good citizen after his release.",
+    example: "The program aims to rehabilitate young offenders."
+  },
+  "disregarding": {
+    word: "disregarding",
+    pronunciation: "/ˌdɪsrɪˈɡɑːdɪŋ/",
+    pos: "Verb (present participle)",
+    bn: "উপেক্ষা করা / অবহেলা করা",
+    en: "Ignoring or paying no attention to something.",
+    context: "Jimmy ignored the beauty of nature around him.",
+    example: "He continued working, disregarding the noise outside."
+  },
+  "buck against": {
+    word: "buck against",
+    pronunciation: "/bʌk əˈɡenst/",
+    pos: "Phrasal Verb",
+    bn: "বিরোধিতা করা / প্রতিরোধ করা",
+    en: "To oppose or resist something.",
+    context: "Mike and his friends had to oppose a protest from Springfield.",
+    example: "The workers bucked against the new rules."
+  },
+  "balked": {
+    word: "balked",
+    pronunciation: "/bɔːkt/",
+    pos: "Verb (past tense)",
+    bn: "থেমে যাওয়া / বাধা পাওয়া",
+    en: "Stopped or refused to proceed.",
+    context: "The governor nearly stopped the release.",
+    example: "The horse balked at the high jump."
+  },
+  "jimmies": {
+    word: "jimmies",
+    pronunciation: "/ˈdʒɪmiz/",
+    pos: "Noun (plural)",
+    bn: "ধাতব দণ্ড (জানালা ভাঙার জন্য ব্যবহৃত)",
+    en: "Short metal bars used to break open windows.",
+    context: "Part of Jimmy's burglar tool kit.",
+    example: "The burglar used jimmies to force open the window."
+  },
+  "augers": {
+    word: "augers",
+    pronunciation: "/ˈɔːɡərz/",
+    pos: "Noun (plural)",
+    bn: "ছিদ্র করার যন্ত্র / ভূমি বা কাঠে ছিদ্র করার সরঞ্জাম",
+    en: "Tools used for making holes in wood or in the ground.",
+    context: "Part of Jimmy's set of burglar tools.",
+    example: "The carpenter used augers to bore holes in the wood."
+  },
+  "seltzer": {
+    word: "seltzer",
+    pronunciation: "/ˈseltsər/",
+    pos: "Noun",
+    bn: "সেল্টজার (ছোট বুদবুদযুক্ত জল)",
+    en: "Water that contains small bubbles (carbonated water).",
+    context: "Jimmy had seltzer-and-milk instead of hard drinks.",
+    example: "She ordered a glass of seltzer with lemon."
+  },
+  "opened like a cheese": {
+    word: "opened like a cheese",
+    pronunciation: "/ˈəʊpənd laɪk ə tʃiːz/",
+    pos: "Idiom (slang)",
+    bn: "খুব সহজে খোলা হয়েছে",
+    en: "Opened very easily.",
+    context: "The burglar-proof safe was opened very easily by Jimmy.",
+    example: "The lock opened like a cheese with the right key."
+  },
+  "clemency": {
+    word: "clemency",
+    pronunciation: "/ˈklemənsi/",
+    pos: "Noun",
+    bn: "ক্ষমা / দয়া",
+    en: "Pardon or mercy shown to an offender.",
+    context: "Ben Price says Jimmy won't get any mercy next time.",
+    example: "The governor granted clemency to the prisoner."
+  },
+  "confederates": {
+    word: "confederates",
+    pronunciation: "/kənˈfedərəts/",
+    pos: "Noun (plural)",
+    bn: "সহযোগী / অপরাধের সঙ্গী",
+    en: "Partners in crime.",
+    context: "Jimmy worked alone and had no partners in crime.",
+    example: "The police arrested the thief and his confederates."
+  },
+  "dodger of retribution": {
+    word: "dodger of retribution",
+    pronunciation: "/ˈdɒdʒər əv ˌretrɪˈbjuːʃn/",
+    pos: "Noun Phrase",
+    bn: "শাস্তি এড়ানোর জন্য দক্ষ ব্যক্তি",
+    en: "One who escapes severe punishment.",
+    context: "Jimmy was known for escaping punishment successfully.",
+    example: "The criminal was a dodger of retribution for years."
+  },
+  "collared": {
+    word: "collared",
+    pronunciation: "/ˈkɒlərd/",
+    pos: "Verb (past tense)",
+    bn: "ধরা / জাপটে ধরা",
+    en: "Caught hold of.",
+    context: "Jimmy caught hold of a boy on the bank steps.",
+    example: "The police collared the suspect near the station."
+  },
+  "specious": {
+    word: "specious",
+    pronunciation: "/ˈspiːʃəs/",
+    pos: "Adjective",
+    bn: "প্রতারণামূলক / বিভ্রান্তিকরভাবে সত্য বলে মনে হয়",
+    en: "Seeming to be true or correct, but actually false.",
+    context: "Jimmy used a misleading but clever trick to ask about Annabel.",
+    example: "His specious argument fooled many people."
+  },
+  "guile": {
+    word: "guile",
+    pronunciation: "/ɡaɪl/",
+    pos: "Noun",
+    bn: "ছলনা / চতুর প্রতারণা",
+    en: "The use of clever but dishonest methods to deceive someone.",
+    context: "Jimmy used clever deception to learn Annabel's name.",
+    example: "She used guile to get the information she needed."
+  },
+  "four-in-hand": {
+    word: "four-in-hand",
+    pronunciation: "/ˌfɔːr ɪn ˈhænd/",
+    pos: "Noun",
+    bn: "টাই বাঁধার একটি পদ্ধতি",
+    en: "A method of tying or knotting a necktie.",
+    context: "The clerk was trying to figure out Jimmy's tie knot.",
+    example: "He wore a stylish four-in-hand tie to the party."
+  },
+  "the phoenix": {
+    word: "the phoenix",
+    pronunciation: "/ðə ˈfiːnɪks/",
+    pos: "Noun (metaphor)",
+    bn: "ফিনিক্স পাখি (পুরনো জীবন থেকে নতুন জীবনে উত্তরণের প্রতীক)",
+    en: "A mythical bird associated with rising again from ashes; here it symbolizes Jimmy's transformation.",
+    context: "Ralph Spencer arose from Jimmy Valentine's ashes.",
+    example: "Like a phoenix, she rebuilt her life after the disaster."
+  },
+  "alterative": {
+    word: "alterative",
+    pronunciation: "/ˈɔːltərətɪv/",
+    pos: "Adjective",
+    bn: "পরিবর্তনকারী / পরিবর্তন আনয়নকারী",
+    en: "Something that alters or changes a person.",
+    context: "Love caused a sudden and transformative change in Jimmy.",
+    example: "The experience was alterative and changed his outlook."
+  },
+  "unobtrusively": {
+    word: "unobtrusively",
+    pronunciation: "/ˌʌnəbˈtruːsɪvli/",
+    pos: "Adverb",
+    bn: "অলক্ষ্যে / লক্ষ্য না করে",
+    en: "In a way that is not noticeable or conspicuous.",
+    context: "Ben Price entered Elmore without being noticed.",
+    example: "She unobtrusively slipped out of the room."
+  },
+  "livery buggy": {
+    word: "livery buggy",
+    pronunciation: "/ˈlɪvəri ˈbʌɡi/",
+    pos: "Noun Phrase",
+    bn: "ভাড়া করা ঘোড়ার গাড়ি",
+    en: "A horse and carriage available for hire.",
+    context: "Ben Price arrived in Elmore in a hired carriage.",
+    example: "They traveled in a livery buggy to the station."
+  },
+  "patented": {
+    word: "patented",
+    pronunciation: "/ˈpætntɪd/",
+    pos: "Adjective",
+    bn: "পেটেন্টযুক্ত / একচেটিয়া অধিকারযুক্ত",
+    en: "Exclusive; protected by a patent.",
+    context: "The bank vault had a new, patented door.",
+    example: "The company produced a patented device for cleaning."
+  },
+  "sauntered": {
+    word: "sauntered",
+    pronunciation: "/ˈsɔːntərd/",
+    pos: "Verb (past tense)",
+    bn: "আস্তে আস্তে হাঁটা / বিনা তাড়ায় হাঁটা",
+    en: "Walked in a casual, unhurried way.",
+    context: "Ben Price walked casually into the bank.",
+    example: "He sauntered down the street, enjoying the sunshine."
+  },
+  "elusive": {
+    word: "elusive",
+    pronunciation: "/ɪˈluːsɪv/",
+    pos: "Adjective",
+    bn: "ধরা কঠিন / অধরা",
+    en: "Difficult to find, catch, or achieve.",
+    context: "Jimmy was an elusive cracksman who was hard to catch.",
+    example: "The elusive criminal evaded the police for years."
+  },
+  "cracksman": {
+    word: "cracksman",
+    pronunciation: "/ˈkræksmən/",
+    pos: "Noun",
+    bn: "সিন্দুক-ভাঙা চোর",
+    en: "A burglar who breaks into safes.",
+    context: "Jimmy was known as a skilled cracksman.",
+    example: "The cracksman was finally caught by the detective."
+  },
+  "retribution": {
+    word: "retribution",
+    pronunciation: "/ˌretrɪˈbjuːʃn/",
+    pos: "Noun",
+    bn: "শাস্তি / প্রতিফল",
+    en: "Punishment inflicted as revenge for a wrong.",
+    context: "Jimmy had a reputation for escaping punishment.",
+    example: "He feared retribution for his past crimes."
+  },
+  "prospered": {
+    word: "prospered",
+    pronunciation: "/ˈprɒspərd/",
+    pos: "Verb (past tense)",
+    bn: "সফল হওয়া / সমৃদ্ধ হওয়া",
+    en: "Became successful or flourished.",
+    context: "Ralph Spencer's shoe business prospered in Elmore.",
+    example: "The small shop prospered after the new owner took over."
+  },
+  "captivated": {
+    word: "captivated",
+    pronunciation: "/ˈkæptɪveɪtɪd/",
+    pos: "Verb (past tense)",
+    bn: "মুগ্ধ হওয়া / আকর্ষিত হওয়া",
+    en: "Attracted and charmed; fascinated.",
+    context: "Jimmy became more and more captivated by Annabel's charms.",
+    example: "The audience was captivated by her performance."
+  },
+  "anguish": {
+    word: "anguish",
+    pronunciation: "/ˈæŋɡwɪʃ/",
+    pos: "Noun",
+    bn: "তীব্র যন্ত্রণা / মানসিক কষ্ট",
+    en: "Severe mental or physical pain or suffering.",
+    context: "Annabel's eyes were full of anguish when Agatha was trapped.",
+    example: "She cried out in anguish when she heard the news."
+  },
+  "hysterically": {
+    word: "hysterically",
+    pronunciation: "/hɪˈsterɪkli/",
+    pos: "Adverb",
+    bn: "উন্মাদনার সাথে / হিস্টিরিয়ার মতো",
+    en: "In a wildly emotional or uncontrolled way.",
+    context: "Agatha's mother screamed hysterically.",
+    example: "She laughed hysterically at the funny story."
+  },
+  "convulsions": {
+    word: "convulsions",
+    pronunciation: "/kənˈvʌlʃnz/",
+    pos: "Noun (plural)",
+    bn: "খিঁচুনি / শরীরের অনৈচ্ছিক কম্পন",
+    en: "Sudden, violent, irregular movements of the body.",
+    context: "Mr. Adams feared Agatha would go into convulsions from fright.",
+    example: "The child was having convulsions due to high fever."
+  },
+  "frantic": {
+    word: "frantic",
+    pronunciation: "/ˈfræntɪk/",
+    pos: "Adjective",
+    bn: "উন্মাদ / বেপরোয়া",
+    en: "Wildly excited with fear or anxiety.",
+    context: "Agatha's mother was frantic with worry.",
+    example: "She was frantic when she couldn't find her keys."
+  },
+  "redemption": {
+    word: "redemption",
+    pronunciation: "/rɪˈdempʃn/",
+    pos: "Noun",
+    bn: "মুক্তি / পুনরুদ্ধার",
+    en: "The act of being saved from sin, error, or evil.",
+    context: "The story is about Jimmy's redemption from his criminal past.",
+    example: "He sought redemption for his past mistakes."
+  },
+  "transformation": {
+    word: "transformation",
+    pronunciation: "/ˌtrænsfərˈmeɪʃn/",
+    pos: "Noun",
+    bn: "রূপান্তর / পরিবর্তন",
+    en: "A complete change in form or nature.",
+    context: "Jimmy's transformation from criminal to respectable man.",
+    example: "The transformation of the city was remarkable."
+  }
+};
+
+/* ============================================================
+   DATA: CHARACTERS
+   ============================================================ */
+const CHARACTERS = [
+  {
+    name: "Jimmy Valentine / Ralph D. Spencer",
+    role: "Protagonist — Skilled safecracker turned respectable businessman",
+    avatar: "JV",
+    who: "Jimmy Valentine is a skilled safecracker who is released from prison at the beginning of the story. He later assumes the identity of Ralph D. Spencer.",
+    personality: "Intelligent, skilled, charming, capable of deep love and self-sacrifice.",
+    actions: "Collects his burglar tools, commits burglaries, moves to Elmore, changes his identity, falls in love with Annabel, decides to give up crime, rescues Agatha from the vault.",
+    relationships: "Loves Annabel Adams; respected by the Elmore community; tracked by Ben Price.",
+    role: "Central character whose transformation drives the plot.",
+    development: "From a hardened criminal to a selfless, loving man who risks everything to save a child.",
+    evidence: "He writes to his friend: 'I've quit the old business... I'm making an honest living.'",
+    bn: "জিমি ভ্যালেন্টাইন একজন দক্ষ সিন্দুক-ভাঙা, যে কারাগার থেকে মুক্তি পায়। পরে রালফ ডি. স্পেনসার নামে পরিচয় পরিবর্তন করে। অ্যানাবেলকে ভালোবাসে, অপরাধ ত্যাগ করে, এবং অ্যাগাথাকে বাঁচাতে নিজের দক্ষতা ব্যবহার করে।"
+  },
+  {
+    name: "Annabel Adams",
+    role: "Jimmy's love interest — Banker's daughter",
+    avatar: "AA",
+    who: "Annabel Adams is the daughter of Mr. Adams, the banker. She falls in love with Ralph D. Spencer.",
+    personality: "Loving, trusting, cheerful, supportive.",
+    actions: "Meets Jimmy, falls in love, gives him the rose, trusts him completely.",
+    relationships: "Daughter of Mr. Adams; engaged to Ralph Spencer; aunt of Agatha and May.",
+    role: "Her love inspires Jimmy to reform and change his life.",
+    development: "From a small-town girl to a loving fiancée who believes in Jimmy.",
+    evidence: "She unpins the rose from her dress and gives it to Jimmy.",
+    bn: "অ্যানাবেল অ্যাডামস ব্যাংকার মিস্টার অ্যাডামসের কন্যা। সে রালফ ডি. স্পেনসারের প্রেমে পড়ে। তার ভালোবাসা জিমিকে সংস্কার করতে অনুপ্রাণিত করে।"
+  },
+  {
+    name: "Ben Price",
+    role: "Detective — Pursues Jimmy Valentine",
+    avatar: "BP",
+    who: "Ben Price is an eminent detective who has been tracking Jimmy Valentine for years.",
+    personality: "Observant, persistent, intelligent, ultimately compassionate.",
+    actions: "Recognizes Jimmy's methods, tracks him to Elmore, witnesses the rescue, lets him go free.",
+    relationships: "Professional adversary of Jimmy; shows mercy at the end.",
+    role: "Represents justice and mercy; his decision allows Jimmy's redemption.",
+    development: "From a determined pursuer to a compassionate observer who chooses mercy over justice.",
+    evidence: "'Guess you're mistaken, Mr. Spencer,' he said. 'Don't believe I recognize you.'",
+    bn: "বেন প্রাইস একজন বিখ্যাত গোয়েন্দা যে জিমিকে বছরের পর বছর ধরে অনুসরণ করছে। শেষে সে জিমিকে চিনতে পেরেও মুক্তি দেয়, যা ন্যায়বিচার ও ক্ষমার দ্বন্দ্ব দেখায়।"
+  },
+  {
+    name: "Mr. Adams",
+    role: "Annabel's father — Banker",
+    avatar: "MA",
+    who: "Mr. Adams is a typical country banker and Annabel's father.",
+    personality: "Proud, conventional, practical, caring.",
+    actions: "Approves of Spencer, shows off the new vault, panics when Agatha is trapped.",
+    relationships: "Father of Annabel; employer of the bank staff; future father-in-law of Jimmy.",
+    role: "Represents conventional society and family values.",
+    development: "From proud banker to desperate grandfather.",
+    evidence: "'There isn't a man nearer than Little Rock who can open that door,' said Mr. Adams.",
+    bn: "মিস্টার অ্যাডামস একজন সাধারণ দেশি ব্যাংকার এবং অ্যানাবেলের বাবা। তিনি নতুন ভল্ট দেখাতে গর্বিত ছিলেন, কিন্তু অ্যাগাথা আটকে গেলে আতঙ্কিত হয়ে পড়েন।"
+  },
+  {
+    name: "Agatha",
+    role: "Annabel's niece — Trapped child",
+    avatar: "AG",
+    who: "Agatha is Annabel's five-year-old niece who gets trapped in the bank vault.",
+    personality: "Innocent, playful, frightened.",
+    actions: "Gets locked in the vault by her sister May, is rescued by Jimmy.",
+    relationships: "Niece of Annabel; granddaughter of Mr. Adams; sister of May.",
+    role: "Her entrapment creates the climax and forces Jimmy to reveal his true identity.",
+    development: "From playful child to terrified victim, then safe.",
+    evidence: "The child wildly shrieking in the dark vault in a panic of terror.",
+    bn: "অ্যাগাথা অ্যানাবেলের পাঁচ বছরের ভাগ্নি, যে ব্যাংকের ভল্টে আটকে যায়। জিমি তাকে উদ্ধার করে, ফলে তার আসল পরিচয় প্রকাশ পায়।"
+  },
+  {
+    name: "May",
+    role: "Agatha's older sister",
+    avatar: "MY",
+    who: "May is Annabel's nine-year-old niece, Agatha's sister.",
+    personality: "Playful, careless, innocent.",
+    actions: "Accidentally locks Agatha in the vault while playing.",
+    relationships: "Sister of Agatha; niece of Annabel.",
+    role: "Her playful action triggers the central crisis of the story.",
+    development: "From playful child to shocked witness.",
+    evidence: "May, the nine-year-old girl, in a spirit of play, had shut Agatha in the vault.",
+    bn: "মে অ্যানাবেলের নয় বছরের ভাগ্নি, অ্যাগাথার বোন। খেলার ছলে সে অ্যাগাথাকে ভল্টে আটকে ফেলে, যা গল্পের সংকট সৃষ্টি করে।"
+  }
+];
+
+/* ============================================================
+   DATA: THEMES
+   ============================================================ */
+const THEMES = [
+  {
+    icon: "❤️",
+    title: "Love",
+    def: "Love as a powerful force that can change a person completely.",
+    evidence: "Jimmy falls in love with Annabel and decides to give up crime.",
+    explanation: "Annabel's love inspires Jimmy to become a better man. He writes to his friend that he has quit the old business and is making an honest living.",
+    bn: "ভালোবাসা: অ্যানাবেলের ভালোবাসা জিমিকে অপরাধ ত্যাগ করতে এবং একজন ভালো মানুষ হতে অনুপ্রাণিত করে।",
+    exam: "Important for questions on transformation and central theme."
+  },
+  {
+    icon: "🔄",
+    title: "Transformation",
+    def: "A complete change in a person's character and life.",
+    evidence: "Jimmy Valentine becomes Ralph D. Spencer, a respectable businessman.",
+    explanation: "Jimmy's transformation is both external (name, appearance, profession) and internal (values, priorities). He becomes honest and selfless.",
+    bn: "রূপান্তর: জিমি ভ্যালেন্টাইন থেকে রালফ ডি. স্পেনসারে পরিণত হয় — বাহ্যিক ও অন্তর্গত উভয়ভাবেই।",
+    exam: "Key theme for broad questions on character development."
+  },
+  {
+    icon: "🙏",
+    title: "Redemption",
+    def: "The act of being saved from sin or error.",
+    evidence: "Jimmy risks his freedom to save Agatha, showing true reform.",
+    explanation: "His selfless act proves he has truly changed. Ben Price's decision to let him go reinforces the redemptive power of good deeds.",
+    bn: "মুক্তি: জিমি অ্যাগাথাকে বাঁচাতে নিজের স্বাধীনতা ঝুঁকিতে ফেলে, যা প্রমাণ করে সে সত্যিই সংস্কার করেছে।",
+    exam: "Central theme — often asked in exams."
+  },
+  {
+    icon: "⚖️",
+    title: "Justice and Mercy",
+    def: "The conflict between enforcing the law and showing compassion.",
+    evidence: "Ben Price recognizes Jimmy but chooses to let him go.",
+    explanation: "Ben Price represents justice, but he also shows mercy because Jimmy's act was selfless. This highlights the human side of justice.",
+    bn: "ন্যায়বিচার ও ক্ষমা: বেন প্রাইস জিমিকে চিনতে পেরেও মুক্তি দেয়, যা ন্যায়বিচারের মানবিক দিক দেখায়।",
+    exam: "Important for critical analysis questions."
+  },
+  {
+    icon: "🎭",
+    title: "Identity",
+    def: "The question of who a person really is.",
+    evidence: "Jimmy Valentine vs. Ralph D. Spencer — two identities, one person.",
+    explanation: "Jimmy's name change represents his desire to leave his past behind. But his true identity emerges when he uses his old skills to save a life.",
+    bn: "পরিচয়: জিমি ভ্যালেন্টাইন বনাম রালফ ডি. স্পেনসার — এক ব্যক্তি, দুই পরিচয়।",
+    exam: "Good for questions on duality and appearance vs. reality."
+  },
+  {
+    icon: "💰",
+    title: "Crime and Honesty",
+    def: "The contrast between a life of crime and an honest life.",
+    evidence: "Jimmy gives up burglary and becomes an honest businessman.",
+    explanation: "O. Henry contrasts Jimmy's criminal past with his honest present. The story shows that honesty brings true happiness.",
+    bn: "অপরাধ ও সততা: জিমি অপরাধ ত্যাগ করে সৎ ব্যবসায়ী হয়ে ওঠে। সততা প্রকৃত সুখ আনে।",
+    exam: "Useful for character-based questions."
+  },
+  {
+    icon: "🧑‍🤝‍🧑",
+    title: "Human Relationships",
+    def: "The bonds between people that shape our lives.",
+    evidence: "Jimmy's relationships with Annabel, Ben Price, and the Adams family.",
+    explanation: "These relationships influence Jimmy's decisions and help him grow as a person.",
+    bn: "মানব সম্পর্ক: অ্যানাবেল, বেন প্রাইস এবং অ্যাডামস পরিবারের সাথে জিমির সম্পর্ক তার সিদ্ধান্তকে প্রভাবিত করে।",
+    exam: "Good for broad questions on character dynamics."
+  },
+  {
+    icon: "🕊️",
+    title: "Second Chance",
+    def: "The opportunity to start afresh and leave the past behind.",
+    evidence: "Jimmy is released from prison and builds a new life.",
+    explanation: "The story argues that everyone deserves a second chance, especially if they are truly repentant.",
+    bn: "দ্বিতীয় সুযোগ: জিমি কারাগার থেকে মুক্তি পেয়ে নতুন জীবন গড়ে। গল্পটি বলে যে সত্যিকারের অনুতপ্ত হলে সবাই দ্বিতীয় সুযোগের যোগ্য।",
+    exam: "Important for moral-based questions."
+  },
+  {
+    icon: "🔐",
+    title: "Appearance vs Reality",
+    def: "The difference between how things seem and how they really are.",
+    evidence: "Ralph Spencer appears to be a respectable businessman, but he was once a criminal.",
+    explanation: "The story plays with the idea that a person's past does not define their future.",
+    bn: "আভাস বনাম বাস্তবতা: রালফ স্পেনসার একজন সম্মানিত ব্যবসায়ী বলে মনে হয়, কিন্তু তিনি আগে অপরাধী ছিলেন।",
+    exam: "Useful for critical analysis."
+  }
+];
+
+/* ============================================================
+   DATA: CRITICAL ANALYSIS
+   ============================================================ */
+const CRITICAL_ANALYSIS = [
+  {
+    title: "Transformation",
+    en: "Jimmy Valentine's transformation is the heart of the story. He changes from a professional safecracker into a respectable businessman and a loving fiancé. This change is caused by his love for Annabel and his desire for a better life. His decision to use his old skills to save Agatha proves that his transformation is genuine and complete.",
+    bn: "জিমি ভ্যালেন্টাইনের রূপান্তর গল্পের মূল। সে একজন পেশাদার সিন্দুক-ভাঙা থেকে একজন সম্মানিত ব্যবসায়ী এবং প্রেমময় বাগদত্তে পরিণত হয়। এই পরিবর্তনের কারণ অ্যানাবেলের প্রতি তার ভালোবাসা এবং উন্নত জীবনের আকাঙ্ক্ষা। অ্যাগাথাকে বাঁচাতে তার পুরনো দক্ষতা ব্যবহারের সিদ্ধান্ত প্রমাণ করে যে তার রূপান্তর সত্যিকারের।",
+    exam: "Key point for broad questions on character development."
+  },
+  {
+    title: "Love as a Force for Change",
+    en: "Annabel's love acts as a catalyst for Jimmy's reform. Before meeting her, he was content with his criminal life. After falling in love, he writes to his friend that he has quit the old business and is making an honest living. Love gives him a reason to change and the strength to stick to his new path.",
+    bn: "অ্যানাবেলের ভালোবাসা জিমির সংস্কারের অনুঘটক হিসেবে কাজ করে। তার সাথে দেখা হওয়ার আগে জিমি তার অপরাধমূলক জীবন নিয়ে সন্তুষ্ট ছিল। প্রেমে পড়ার পর সে তার বন্ধুকে লেখে যে সে পুরনো ব্যবসা ছেড়ে দিয়েছে এবং সৎ জীবনযাপন করছে।",
+    exam: "Important for questions on the role of love."
+  },
+  {
+    title: "Symbolism of the Rose",
+    en: "The rose Annabel gives Jimmy is a powerful symbol. It represents love, purity, and the new life Jimmy has chosen. When he puts it in his vest pocket before opening the vault, it signifies that he is carrying his love with him while performing a selfless act. The rose is a symbol of his transformation.",
+    bn: "অ্যানাবেলের দেওয়া গোলাপ একটি শক্তিশালী প্রতীক। এটি ভালোবাসা, পবিত্রতা এবং জিমির নির্বাচিত নতুন জীবনের প্রতিনিধিত্ব করে। ভল্ট খোলার আগে সে এটি তার পকেটে রাখে, যা বোঝায় সে তার ভালোবাসা সাথে নিয়ে নিঃস্বার্থ কাজ করছে।",
+    exam: "Good for symbolism-based questions."
+  },
+  {
+    title: "The Suitcase",
+    en: "Jimmy's suitcase containing his burglar's tools represents his criminal past. Throughout the story, the suitcase is a constant reminder of who he used to be. In the climax, he opens the suitcase to save Agatha, symbolizing that his past skills can be used for good. The suitcase also represents the burden of his old life.",
+    bn: "জিমির স্যুটকেসে থাকা চোরাই সরঞ্জাম তার অপরাধমূলক অতীতের প্রতিনিধিত্ব করে। গল্পজুড়ে স্যুটকেস তার পুরনো পরিচয়ের স্মারক। চরম মুহূর্তে সে অ্যাগাথাকে বাঁচাতে স্যুটকেস খোলে, যা বোঝায় তার পুরনো দক্ষতা ভালোর জন্য ব্যবহার করা যেতে পারে।",
+    exam: "Important for symbolism and plot analysis."
+  },
+  {
+    title: "The Safe/Vault",
+    en: "The bank vault is central to the climax. It represents both a challenge and an opportunity. When Agatha is trapped inside, Jimmy must choose between his new life and saving the child. The vault becomes the stage for his final transformation from Ralph Spencer back to Jimmy Valentine.",
+    bn: "ব্যাংকের ভল্ট চরম মুহূর্তের কেন্দ্রে। এটি একটি চ্যালেঞ্জ এবং একটি সুযোগ উভয়ই। অ্যাগাথা ভিতরে আটকে গেলে জিমিকে তার নতুন জীবন এবং শিশুকে বাঁচানোর মধ্যে বেছে নিতে হয়। ভল্টটি তার চূড়ান্ত রূপান্তরের মঞ্চ হয়ে ওঠে।",
+    exam: "Key for climax and theme questions."
+  },
+  {
+    title: "The Name Change",
+    en: "Jimmy changes his name to Ralph D. Spencer to escape his past. This name change represents his desire for a new identity. However, when he uses his safecracking skills, he reverts to being Jimmy Valentine. The story suggests that a name alone cannot change a person — true change comes from within.",
+    bn: "জিমি তার অতীত থেকে পালাতে রালফ ডি. স্পেনসার নাম ধারণ করে। এই নাম পরিবর্তন নতুন পরিচয়ের আকাঙ্ক্ষার প্রতিনিধিত্ব করে। তবে যখন সে তার দক্ষতা ব্যবহার করে, তখন সে আবার জিমি ভ্যালেন্টাইন হয়ে যায়। গল্পটি বোঝায় যে শুধু নাম পরিবর্তন একজন মানুষকে পরিবর্তন করতে পারে না — প্রকৃত পরিবর্তন অন্তর থেকে আসে।",
+    exam: "Good for identity and transformation questions."
+  },
+  {
+    title: "Ben Price",
+    en: "Ben Price is the detective who has been tracking Jimmy. He represents the law and justice. However, when he sees Jimmy risk everything to save Agatha, he chooses mercy over justice. His decision to let Jimmy go is the final twist of the story and reinforces the theme of redemption.",
+    bn: "বেন প্রাইস সেই গোয়েন্দা যে জিমিকে অনুসরণ করছিল। সে আইন ও ন্যায়বিচারের প্রতিনিধিত্ব করে। তবে অ্যাগাথাকে বাঁচাতে জিমির আত্মত্যাগ দেখে সে ন্যায়বিচারের চেয়ে ক্ষমাকে বেছে নেয়। তার সিদ্ধান্ত গল্পের চূড়ান্ত মোড় এবং মুক্তির থিমকে শক্তিশালী করে।",
+    exam: "Important for questions on justice and mercy."
+  },
+  {
+    title: "The Ending",
+    en: "The ending is both ironic and emotionally satisfying. Ben Price, who has been pursuing Jimmy for years, finally catches him but lets him go. This twist ending is typical of O. Henry. It shows that compassion can overcome strict justice. The ending leaves the reader with a sense of hope and faith in human goodness.",
+    bn: "সমাপ্তি হাস্যকর এবং মানসিকভাবে সন্তোষজনক উভয়ই। বেন প্রাইস, যে বছর ধরে জিমিকে অনুসরণ করছিল, অবশেষে তাকে ধরে কিন্তু ছেড়ে দেয়। এই মোচড়টি ও. হেনরির বৈশিষ্ট্য। এটি দেখায় যে সহানুভূতি কঠোর ন্যায়বিচারকে অতিক্রম করতে পারে।",
+    exam: "Essential for questions on O. Henry's twist endings."
+  },
+  {
+    title: "O. Henry's Twist Ending",
+    en: "O. Henry is famous for his surprise endings. In this story, the twist is that Ben Price, the detective, lets Jimmy go free instead of arresting him. This ending is unexpected but logical, given Jimmy's selfless act. It changes the reader's understanding of justice and mercy.",
+    bn: "ও. হেনরি তার চমকপ্রদ সমাপ্তির জন্য বিখ্যাত। এই গল্পে মোচড় হল যে গোয়েন্দা বেন প্রাইস জিমিকে গ্রেপ্তার না করে মুক্তি দেয়। এই সমাপ্তি অপ্রত্যাশিত কিন্তু যুক্তিসঙ্গত, কারণ জিমি নিঃস্বার্থ কাজ করেছিল।",
+    exam: "Must-know for O. Henry's narrative technique."
+  }
+];
+
+/* ============================================================
+   DATA: SAQs
+   ============================================================ */
+const SAQS = [
+  {
+    q: "How did Jimmy enjoy his first joys of liberty?",
+    marks: 2,
+    ans: "After his release from prison, Jimmy headed straight to a restaurant where he tasted broiled chicken and white wine. He also smoked a cigar better than the one the warden had given him. He then tossed a quarter into a blind man's hat and boarded a train.",
+    bn: "কারাগার থেকে মুক্তি পাওয়ার পর জিমি সোজা একটি রেস্তোরাঁয় যায়, যেখানে সে ভাজা মুরগি ও সাদা ওয়াইন খায়। সে ওয়ার্ডেনের দেওয়া সিগারের চেয়ে ভালো সিগারও খায়। এরপর একটি অন্ধ ব্যক্তির টুপিতে একটি কোয়ার্টার নিক্ষেপ করে ট্রেনে ওঠে।",
+    keywords: ["restaurant", "broiled chicken", "white wine", "cigar", "blind man", "train"]
+  },
+  {
+    q: "What were the signature characteristics of Jimmy Valentine?",
+    marks: 2,
+    ans: "Jimmy Valentine was known for his long jumps, quick get-aways, no confederates, and a taste for good society. He was an elusive cracksman who never had to drill but one hole in a safe.",
+    bn: "জিমি ভ্যালেন্টাইন তার লম্বা লাফ, দ্রুত পালানো, কোনো সহযোগী না থাকা এবং ভালো সমাজের প্রতি আগ্রহের জন্য পরিচিত ছিল। সে একজন অধরা সিন্দুক-ভাঙা ছিল যে একটি সিন্দুকে মাত্র একটি ছিদ্র করতে।",
+    keywords: ["long jumps", "quick get-aways", "no confederates", "taste for good society", "elusive cracksman"]
+  },
+  {
+    q: "How did Agatha get trapped in the vault?",
+    marks: 2,
+    ans: "May, the nine-year-old girl, in a spirit of play, shut Agatha in the vault. She then shot the bolts and turned the knob of the combination as she had seen Mr. Adams do.",
+    bn: "মে, নয় বছরের মেয়েটি, খেলার ছলে অ্যাগাথাকে ভল্টে আটকে ফেলে। এরপর সে মিস্টার অ্যাডামসকে যেমন করতে দেখেছিল সেভাবে বল্টু লাগায় এবং কম্বিনেশনের নব ঘুরিয়ে দেয়।",
+    keywords: ["May", "nine-year-old", "spirit of play", "shut Agatha", "bolts", "combination"]
+  },
+  {
+    q: "How was Agatha saved?",
+    marks: 2,
+    ans: "Agatha was saved by Jimmy Valentine who used his old safecracking tools to open the vault door. He worked swiftly and opened the door in ten minutes, breaking his own record.",
+    bn: "অ্যাগাথাকে জিমি ভ্যালেন্টাইন বাঁচায়, যে তার পুরনো সিন্দুক-ভাঙার সরঞ্জাম ব্যবহার করে ভল্টের দরজা খোলে। সে দ্রুত কাজ করে দশ মিনিটে দরজা খোলে, নিজের রেকর্ড ভেঙে।",
+    keywords: ["Jimmy Valentine", "safecracking tools", "opened the vault", "ten minutes", "record"]
+  },
+  {
+    q: "Why did Jimmy decide to give up his old life?",
+    marks: 2,
+    ans: "Jimmy decided to give up his old life because he fell in love with Annabel Adams. He wanted to marry her and live an honest, respectable life. He wrote to his friend that he had quit the old business and was making an honest living.",
+    bn: "জিমি তার পুরনো জীবন ত্যাগ করার সিদ্ধান্ত নেয় কারণ সে অ্যানাবেল অ্যাডামসের প্রেমে পড়ে। সে তাকে বিয়ে করতে এবং সৎ, সম্মানজনক জীবনযাপন করতে চেয়েছিল।",
+    keywords: ["Annabel Adams", "love", "honest living", "marry", "quit old business"]
+  },
+  {
+    q: "What was Ben Price's opinion about Jimmy's methods?",
+    marks: 2,
+    ans: "Ben Price recognized Jimmy's methods by the clean way the safes were opened. He remarked that Jimmy never had to drill but one hole and that his combination knob was jerked out easily. He knew Jimmy's habits well.",
+    bn: "বেন প্রাইস সিন্দুক খোলার পরিষ্কার পদ্ধতি দেখে জিমির কৌশল চিনতে পেরেছিল। সে মন্তব্য করেছিল যে জিমিকে একটি ছিদ্রই করতে হয় এবং তার কম্বিনেশন নব সহজেই বেরিয়ে আসে।",
+    keywords: ["recognized methods", "one hole", "combination knob", "habits"]
+  },
+  {
+    q: "How did Jimmy's love for Annabel change him?",
+    marks: 2,
+    ans: "Jimmy's love for Annabel transformed him from a criminal into a respectable businessman. He opened a shoe store, made friends, and decided to marry her. He gave up his criminal activities completely.",
+    bn: "অ্যানাবেলের প্রতি জিমির ভালোবাসা তাকে একজন অপরাধী থেকে একজন সম্মানিত ব্যবসায়ীতে পরিণত করে। সে একটি জুতার দোকান খোলে, বন্ধু তৈরি করে এবং তাকে বিয়ে করার সিদ্ধান্ত নেয়।",
+    keywords: ["transformed", "shoe store", "respectable", "gave up crime"]
+  },
+  {
+    q: "What does the rose symbolize in the story?",
+    marks: 2,
+    ans: "The rose symbolizes love, purity, and Jimmy's new life. When Annabel gives it to him, it represents her trust and affection. Jimmy carries it with him while saving Agatha, showing that love guides his selfless act.",
+    bn: "গোলাপ ভালোবাসা, পবিত্রতা এবং জিমির নতুন জীবনের প্রতীক। অ্যানাবেল যখন এটি তাকে দেয়, তখন এটি তার বিশ্বাস ও স্নেহের প্রতিনিধিত্ব করে।",
+    keywords: ["love", "purity", "new life", "trust", "selfless act"]
+  },
+  {
+    q: "Why did Ben Price let Jimmy go?",
+    marks: 2,
+    ans: "Ben Price let Jimmy go because he was moved by Jimmy's selfless act of saving Agatha. He realized that Jimmy had truly reformed and decided to show mercy instead of enforcing the law.",
+    bn: "বেন প্রাইস জিমিকে ছেড়ে দেয় কারণ অ্যাগাথাকে বাঁচানোর জিমির নিঃস্বার্থ কাজ তাকে মুগ্ধ করেছিল। সে বুঝতে পারে যে জিমি সত্যিই সংস্কার করেছে এবং আইন প্রয়োগের পরিবর্তে ক্ষমা দেখানোর সিদ্ধান্ত নেয়।",
+    keywords: ["selfless act", "saving Agatha", "truly reformed", "mercy", "law"]
+  },
+  {
+    q: "What is the significance of the suitcase in the story?",
+    marks: 2,
+    ans: "The suitcase contains Jimmy's burglar tools and represents his criminal past. Throughout the story, it is a reminder of his old identity. In the climax, he uses it to save Agatha, showing that his past skills can be used for good.",
+    bn: "স্যুটকেসে জিমির চোরাই সরঞ্জাম থাকে এবং এটি তার অপরাধমূলক অতীতের প্রতিনিধিত্ব করে। গল্পজুড়ে এটি তার পুরনো পরিচয়ের স্মারক। চরম মুহূর্তে সে এটি অ্যাগাথাকে বাঁচাতে ব্যবহার করে।",
+    keywords: ["burglar tools", "criminal past", "old identity", "save Agatha", "good"]
+  }
+];
+
+/* ============================================================
+   DATA: BROAD QUESTIONS
+   ============================================================ */
+const BROAD_QUESTIONS = [
+  {
+    q: "Trace the phoenix-like transformation of Jimmy Valentine.",
+    marks: 6,
+    ans: `Introduction: Jimmy Valentine is a skilled safecracker who is released from prison. His transformation from a criminal to a respectable man is the central theme of the story.
+
+Main Point 1: Jimmy's life as a criminal — He resumes his old life after release, committing three burglaries. Detective Ben Price recognizes his methods.
+
+Main Point 2: The turning point — Jimmy arrives in Elmore and meets Annabel Adams. He falls in love with her and decides to change his life. He becomes Ralph D. Spencer and opens a shoe store.
+
+Main Point 3: The test — When Annabel's niece Agatha is trapped in the bank vault, Jimmy must choose between his new life and saving the child. He chooses to save her, using his old skills.
+
+Conclusion: Jimmy's transformation is complete when he risks everything for a selfless act. Ben Price's decision to let him go confirms that Jimmy has truly changed. Like a phoenix, he rises from the ashes of his past to become a new man.`,
+    bn: `ভূমিকা: জিমি ভ্যালেন্টাইন একজন দক্ষ সিন্দুক-ভাঙা, যে কারাগার থেকে মুক্তি পায়। তার অপরাধী থেকে সম্মানিত মানুষে রূপান্তর গল্পের কেন্দ্রীয় বিষয়।
+
+মূল বিন্দু ১: অপরাধী জীবন — মুক্তির পর সে পুরনো জীবন শুরু করে, তিনটি চুরি করে। গোয়েন্দা বেন প্রাইস তার কৌশল চিনতে পারে।
+
+মূল বিন্দু ২: মোড় ঘোরানো ঘটনা — জিমি এলমোরে পৌঁছে অ্যানাবেল অ্যাডামসের প্রেমে পড়ে। সে তার জীবন পরিবর্তন করার সিদ্ধান্ত নেয়। সে রালফ ডি. স্পেনসার হয়ে জুতার দোকান খোলে।
+
+মূল বিন্দু ৩: পরীক্ষা — অ্যানাবেলের ভাগ্নি অ্যাগাথা ব্যাংকের ভল্টে আটকে গেলে জিমিকে তার নতুন জীবন এবং শিশুকে বাঁচানোর মধ্যে বেছে নিতে হয়। সে তাকে বাঁচানোর সিদ্ধান্ত নেয়।
+
+উপসংহার: জিমির রূপান্তর সম্পূর্ণ হয় যখন সে নিঃস্বার্থ কাজের জন্য সবকিছু ঝুঁকিতে ফেলে। বেন প্রাইসের মুক্তি দেওয়া নিশ্চিত করে যে জিমি সত্যিই পরিবর্তিত হয়েছে।`,
+    keyPoints: ["Criminal past", "Meeting Annabel", "Becoming Ralph Spencer", "Vault rescue", "Ben Price's mercy"]
+  },
+  {
+    q: "How did Agatha get trapped in the vault? How was she saved?",
+    marks: 6,
+    ans: `Introduction: The climax of the story occurs when Agatha, Annabel's five-year-old niece, gets trapped in the new bank vault.
+
+How she got trapped: May, the nine-year-old sister of Agatha, was playing in the bank. In a spirit of play, she shut Agatha inside the vault. She then shot the bolts and turned the combination knob as she had seen Mr. Adams do. The vault had a time-lock and could not be opened easily.
+
+How she was saved: Mr. Adams tried to open the door but failed. The child's mother was frantic. Annabel turned to Jimmy for help. Jimmy asked for the rose Annabel was wearing, put it in his pocket, and opened his suit-case. He took out his burglar tools and began working on the vault door. In ten minutes, he broke his own record and opened the door. Agatha was saved.
+
+Conclusion: This incident is the turning point of the story. It forces Jimmy to reveal his true identity and leads to Ben Price's decision to let him go.`,
+    bn: `ভূমিকা: গল্পের চরম মুহূর্ত ঘটে যখন অ্যাগাথা, অ্যানাবেলের পাঁচ বছরের ভাগ্নি, নতুন ব্যাংক ভল্টে আটকে যায়।
+
+কিভাবে আটকে গেল: মে, অ্যাগাথার নয় বছরের বোন, ব্যাংকে খেলছিল। খেলার ছলে সে অ্যাগাথাকে ভল্টের ভিতরে বন্ধ করে দেয়। এরপর সে মিস্টার অ্যাডামসকে যেমন করতে দেখেছিল সেভাবে বল্টু লাগায় এবং কম্বিনেশনের নব ঘুরিয়ে দেয়। ভল্টে টাইম-লক ছিল এবং সহজে খোলা যাচ্ছিল না।
+
+কিভাবে বাঁচানো হল: মিস্টার অ্যাডামস দরজা খোলার চেষ্টা করে ব্যর্থ হন। শিশুর মা উন্মাদ হয়ে পড়েন। অ্যানাবেল জিমির দিকে সাহায্যের জন্য তাকান। জিমি অ্যানাবেলের পরা গোলাপটি চেয়ে নেন, পকেটে রাখেন এবং স্যুটকেস খোলেন। তিনি তার চোরাই সরঞ্জাম বের করে ভল্টের দরজায় কাজ শুরু করেন। দশ মিনিটে তিনি নিজের রেকর্ড ভেঙে দরজা খোলেন। অ্যাগাথা রক্ষা পায়।
+
+উপসংহার: এই ঘটনাটি গল্পের মোড় ঘোরানো বিন্দু। এটি জিমিকে তার আসল পরিচয় প্রকাশ করতে বাধ্য করে এবং বেন প্রাইসের তাকে মুক্তি দেওয়ার সিদ্ধান্তে führt।`,
+    keyPoints: ["May locks Agatha", "Vault time-lock", "Jimmy's tools", "Ten minutes", "Agatha saved"]
+  },
+  {
+    q: "Discuss the theme of redemption in 'Alias Jimmy Valentine'.",
+    marks: 6,
+    ans: `Introduction: Redemption is the central theme of O. Henry's 'Alias Jimmy Valentine'. The story shows how a criminal can change and become a good person.
+
+Main Point 1: Jimmy's past — Jimmy is a skilled safecracker who has served time in prison. He resumes his criminal activities after release.
+
+Main Point 2: The change — Jimmy falls in love with Annabel and decides to reform. He becomes Ralph D. Spencer, a respectable businessman. He writes to his friend that he has quit the old business.
+
+Main Point 3: The proof — When Agatha is trapped in the vault, Jimmy risks his freedom to save her. This selfless act proves that his redemption is genuine.
+
+Conclusion: Ben Price, the detective, recognizes Jimmy but lets him go. This shows that redemption is possible and that mercy can triumph over strict justice. Jimmy's story is a powerful example of the redemptive power of love and good deeds.`,
+    bn: `ভূমিকা: মুক্তি ও. হেনরির 'Alias Jimmy Valentine'-এর কেন্দ্রীয় থিম। গল্পটি দেখায় কিভাবে একজন অপরাধী পরিবর্তিত হয়ে ভালো মানুষ হতে পারে।
+
+মূল বিন্দু ১: জিমির অতীত — জিমি একজন দক্ষ সিন্দুক-ভাঙা যে কারাগারে সময় কাটিয়েছে। মুক্তির পর সে আবার অপরাধ শুরু করে।
+
+মূল বিন্দু ২: পরিবর্তন — জিমি অ্যানাবেলের প্রেমে পড়ে এবং সংস্কারের সিদ্ধান্ত নেয়। সে রালফ ডি. স্পেনসার হয়ে সম্মানিত ব্যবসায়ী হয়।
+
+মূল বিন্দু ৩: প্রমাণ — অ্যাগাথা ভল্টে আটকে গেলে জিমি তাকে বাঁচাতে তার স্বাধীনতা ঝুঁকিতে ফেলে। এই নিঃস্বার্থ কাজ প্রমাণ করে তার মুক্তি সত্যিকারের।
+
+উপসংহার: গোয়েন্দা বেন প্রাইস জিমিকে চিনতে পেরেও মুক্তি দেয়। এটি দেখায় যে মুক্তি সম্ভব এবং ক্ষমা কঠোর ন্যায়বিচারের উপর জয়ী হতে পারে।`,
+    keyPoints: ["Jimmy's past", "Love for Annabel", "Selfless rescue", "Ben Price's mercy", "Redemption"]
+  },
+  {
+    q: "How does O. Henry use irony and twist ending in 'Alias Jimmy Valentine'?",
+    marks: 6,
+    ans: `Introduction: O. Henry is famous for his use of irony and surprise endings. 'Alias Jimmy Valentine' is a perfect example of these techniques.
+
+Irony: The story is full of irony. Jimmy, a criminal, becomes a respected businessman. The detective who pursues him lets him go free. The safe that was meant to protect money becomes the place where a child is trapped. Jimmy's criminal skills, which were used for wrong, are used to save a life.
+
+Twist Ending: The biggest twist is Ben Price's decision. He has been tracking Jimmy for years. When he finally catches him, he pretends not to recognize him and lets him go. This is unexpected because Ben Price is a dedicated detective.
+
+Conclusion: The twist ending is emotionally satisfying. It shows that compassion can overcome strict justice. O. Henry's use of irony and twist ending makes the story memorable and thought-provoking.`,
+    bn: `ভূমিকা: ও. হেনরি তার বিদ্রূপ ও চমকপ্রদ সমাপ্তির জন্য বিখ্যাত। 'Alias Jimmy Valentine' এই কৌশলগুলির একটি নিখুঁত উদাহরণ।
+
+বিদ্রূপ: গল্পটি বিদ্রূপে ভরপুর। জিমি, একজন অপরাধী, একজন সম্মানিত ব্যবসায়ী হয়ে ওঠে। যে গোয়েন্দা তাকে অনুসরণ করে সে তাকে মুক্তি দেয়। যে সিন্দুক টাকা রক্ষা করার কথা ছিল সেখানে একটি শিশু আটকে যায়। জিমির অপরাধমূলক দক্ষতা, যা ভুল কাজে ব্যবহৃত হত, একটি জীবন বাঁচাতে ব্যবহৃত হয়।
+
+চমকপ্রদ সমাপ্তি: সবচেয়ে বড় মোচড় হল বেন প্রাইসের সিদ্ধান্ত। সে বছর ধরে জিমিকে অনুসরণ করছিল। অবশেষে যখন তাকে ধরে, তখন সে তাকে চিনতে অস্বীকার করে এবং মুক্তি দেয়। এটি অপ্রত্যাশিত কারণ বেন প্রাইস একজন নিবেদিত গোয়েন্দা।
+
+উপসংহার: চমকপ্রদ সমাপ্তি মানসিকভাবে সন্তোষজনক। এটি দেখায় যে সহানুভূতি কঠোর ন্যায়বিচারকে অতিক্রম করতে পারে।`,
+    keyPoints: ["Irony", "Twist ending", "Ben Price's decision", "Compassion", "O. Henry's technique"]
+  }
+];
+
+/* ============================================================
+   DATA: QUIZ QUESTIONS
+   ============================================================ */
+const QUIZ_DATA = {
+  vocab: [
+    { q: "What does 'rehabilitate' mean?", options: ["To punish", "To help someone return to a good life", "To imprison", "To release"], correct: 1 },
+    { q: "What does 'elusive' mean?", options: ["Easy to catch", "Difficult to catch", "Very loud", "Very slow"], correct: 1 },
+    { q: "What is a 'cracksman'?", options: ["A carpenter", "A burglar who breaks safes", "A policeman", "A banker"], correct: 1 },
+    { q: "What does 'retribution' mean?", options: ["Reward", "Punishment", "Forgiveness", "Celebration"], correct: 1 },
+    { q: "What does 'specious' mean?", options: ["Clearly true", "Seeming true but actually false", "Very honest", "Extremely kind"], correct: 1 },
+    { q: "What does 'guile' mean?", options: ["Innocence", "Clever but dishonest deception", "Generosity", "Bravery"], correct: 1 },
+    { q: "What does 'unobtrusively' mean?", options: ["Loudly", "Without being noticed", "Angrily", "Quickly"], correct: 1 },
+    { q: "What does 'sauntered' mean?", options: ["Ran quickly", "Walked casually", "Jumped high", "Crawled slowly"], correct: 1 },
+    { q: "What does 'anguish' mean?", options: ["Happiness", "Severe mental pain", "Excitement", "Calmness"], correct: 1 },
+    { q: "What does 'clemency' mean?", options: ["Punishment", "Pardon or mercy", "Anger", "Greed"], correct: 1 }
+  ],
+  story: [
+    { q: "What is Jimmy Valentine's prison number?", options: ["9762", "9763", "9761", "9764"], correct: 0 },
+    { q: "Where does Jimmy go after his release?", options: ["Elmore", "Chicago", "New York", "Springfield"], correct: 0 },
+    { q: "What business does Jimmy start in Elmore?", options: ["Banking", "Shoe store", "Restaurant", "Clothing store"], correct: 1 },
+    { q: "Who is Annabel Adams?", options: ["A teacher", "The banker's daughter", "A nurse", "A shopkeeper"], correct: 1 },
+    { q: "What is the name Jimmy assumes in Elmore?", options: ["Ralph D. Spencer", "Ben Price", "Mike Dolan", "Dolph Gibson"], correct: 0 },
+    { q: "What is the name of the detective tracking Jimmy?", options: ["Mike Dolan", "Ben Price", "Mr. Adams", "Dolph Gibson"], correct: 1 },
+    { q: "How does Agatha get trapped in the vault?", options: ["She locks herself in", "May locks her in", "Jimmy locks her in", "Mr. Adams locks her in"], correct: 1 },
+    { q: "How long does Jimmy take to open the vault?", options: ["Five minutes", "Ten minutes", "Fifteen minutes", "Twenty minutes"], correct: 1 },
+    { q: "What does Ben Price do at the end?", options: ["Arrests Jimmy", "Lets Jimmy go", "Calls the police", "Takes Jimmy to court"], correct: 1 },
+    { q: "What does Jimmy give to his friend Billy?", options: ["His shoe store", "His burglar tools", "His money", "His house"], correct: 1 }
+  ],
+  characters: [
+    { q: "Who is the protagonist of the story?", options: ["Ben Price", "Jimmy Valentine", "Annabel Adams", "Mr. Adams"], correct: 1 },
+    { q: "Who is Annabel's father?", options: ["Ben Price", "Mr. Adams", "Mike Dolan", "Dolph Gibson"], correct: 1 },
+    { q: "Who is Agatha?", options: ["Annabel's sister", "Annabel's niece", "Annabel's friend", "Annabel's cousin"], correct: 1 },
+    { q: "Who is May?", options: ["Agatha's sister", "Agatha's mother", "Annabel's sister", "Annabel's friend"], correct: 0 },
+    { q: "Who is Ben Price?", options: ["A banker", "A detective", "A shoemaker", "A prisoner"], correct: 1 },
+    { q: "Who does Jimmy fall in love with?", options: ["May", "Agatha", "Annabel", "Polly"], correct: 2 },
+    { q: "Who lets Jimmy go free at the end?", options: ["Mr. Adams", "Ben Price", "Mike Dolan", "The governor"], correct: 1 },
+    { q: "Who accidentally locks Agatha in the vault?", options: ["Annabel", "May", "Jimmy", "Mr. Adams"], correct: 1 }
+  ],
+  themes: [
+    { q: "What is the central theme of the story?", options: ["Revenge", "Redemption", "Greed", "Jealousy"], correct: 1 },
+    { q: "What does the rose symbolize?", options: ["Hate", "Love and purity", "Wealth", "Power"], correct: 1 },
+    { q: "What does the suitcase represent?", options: ["Jimmy's new life", "Jimmy's criminal past", "Jimmy's wealth", "Jimmy's family"], correct: 1 },
+    { q: "What does the vault represent?", options: ["Safety", "The climax and test", "Wealth", "Justice"], correct: 1 },
+    { q: "What theme does Ben Price's decision represent?", options: ["Justice and mercy", "Revenge", "Greed", "Betrayal"], correct: 0 },
+    { q: "What is the 'phoenix' metaphor about?", options: ["Jimmy's death", "Jimmy's transformation", "Jimmy's wealth", "Jimmy's arrest"], correct: 1 }
+  ],
+  events: [
+    { q: "What happens first in the story?", options: ["Jimmy goes to Elmore", "Jimmy is released from prison", "Agatha is trapped", "Ben Price arrives"], correct: 1 },
+    { q: "What happens after Jimmy commits three burglaries?", options: ["He goes to prison", "Ben Price investigates", "He gets married", "He leaves the country"], correct: 1 },
+    { q: "What happens when Jimmy meets Annabel?", options: ["He ignores her", "He falls in love", "He robs her", "He arrests her"], correct: 1 },
+    { q: "What happens at the bank?", options: ["Jimmy robs it", "Agatha gets trapped", "Ben Price arrests Jimmy", "Mr. Adams closes it"], correct: 1 },
+    { q: "What happens after Jimmy saves Agatha?", options: ["He is arrested", "Ben Price lets him go", "He runs away", "He goes back to prison"], correct: 1 }
+  ],
+  literary: [
+    { q: "What is O. Henry famous for?", options: ["Long novels", "Twist endings", "Poetry", "Plays"], correct: 1 },
+    { q: "What literary device is used when Jimmy's criminal skills save a life?", options: ["Irony", "Simile", "Alliteration", "Onomatopoeia"], correct: 0 },
+    { q: "What is the 'phoenix' an example of?", options: ["Simile", "Metaphor", "Personification", "Hyperbole"], correct: 1 },
+    { q: "What technique does O. Henry use to create suspense?", options: ["Foreshadowing", "Rhyme", "Alliteration", "Repetition"], correct: 0 },
+    { q: "What is the twist ending in the story?", options: ["Jimmy is arrested", "Ben Price lets Jimmy go", "Annabel leaves Jimmy", "Agatha is not saved"], correct: 1 }
+  ]
+};
+
+/* ============================================================
+   APP STATE
+   ============================================================ */
+let currentPage = 0;
+let fontSize = 16;
+let readingMode = false;
+let currentQuizCategory = '';
+let quizQuestions = [];
+let quizIndex = 0;
+let quizScore = 0;
+let quizAnswered = false;
+let currentView = 'home';
+let deferredPrompt = null;
+
+// Progress state
+let progress = {
+  pagesRead: [],
+  vocabLearned: [],
+  quizBest: 0,
+  bookmarks: [],
+  streak: 0,
+  lastVisit: null,
+  achievements: []
+};
+
+/* ============================================================
+   INITIALIZATION
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', () => {
+  loadProgress();
+  renderAllContent();
+  updateProgressUI();
+  checkStreak();
+  initPWA();
+  checkInstallBanner();
+});
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+function navigateTo(view) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  const target = document.getElementById('view-' + view);
+  if (target) {
+    target.classList.add('active');
+    currentView = view;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    updateBottomNav(view);
+    if (view === 'read') renderReadingPage();
+    if (view === 'progress') updateProgressUI();
+    if (view === 'characters') renderCharacters();
+    if (view === 'themes') renderThemes();
+    if (view === 'critical') renderCritical();
+    if (view === 'saq') renderSAQs();
+    if (view === 'broad') renderBroad();
+    if (view === 'vocab') renderVocabList();
+  }
+}
+
+function updateBottomNav(view) {
+  const map = { home: 'nav-home', read: 'nav-read', vocab: 'nav-learn', saq: 'nav-questions', progress: 'nav-progress' };
+  document.querySelectorAll('.bottom-nav button').forEach(b => b.classList.remove('active'));
+  if (map[view]) {
+    const btn = document.getElementById(map[view]);
+    if (btn) btn.classList.add('active');
+  }
+}
+
+/* ============================================================
+   RENDER ALL CONTENT
+   ============================================================ */
+function renderAllContent() {
+  renderReadingPage();
+  renderCharacters();
+  renderThemes();
+  renderCritical();
+  renderSAQs();
+  renderBroad();
+  renderVocabList();
+  renderRevision();
+}
+
+/* ============================================================
+   READING PAGE
+   ============================================================ */
+function renderReadingPage() {
+  const container = document.getElementById('readingContent');
+  if (!container) return;
+  const page = STORY_PAGES[currentPage];
+  if (!page) return;
+
+  container.innerHTML = page.content;
+  container.style.fontSize = fontSize + 'px';
+
+  // Make words clickable
+  container.querySelectorAll('.word').forEach(el => {
+    el.addEventListener('click', () => {
+      const word = el.dataset.word;
+      showVocab(word);
+    });
+  });
+
+  // Update page indicators
+  document.getElementById('pageIndicator').textContent = `Page ${page.page} of ${STORY_PAGES.length}`;
+  document.getElementById('pageNavIndicator').textContent = page.page;
+
+  // Mark page as read
+  if (!progress.pagesRead.includes(page.page)) {
+    progress.pagesRead.push(page.page);
+    saveProgress();
+  }
+}
+
+function prevPage() {
+  if (currentPage > 0) {
+    currentPage--;
+    renderReadingPage();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function nextPage() {
+  if (currentPage < STORY_PAGES.length - 1) {
+    currentPage++;
+    renderReadingPage();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function adjustFontSize(delta) {
+  fontSize = Math.max(12, Math.min(24, fontSize + delta));
+  const container = document.getElementById('readingContent');
+  if (container) container.style.fontSize = fontSize + 'px';
+  showToast(`Font size: ${fontSize}px`);
+}
+
+function toggleReadingMode() {
+  readingMode = !readingMode;
+  const container = document.getElementById('readingContent');
+  if (readingMode) {
+    container.style.maxWidth = '650px';
+    container.style.margin = '0 auto';
+    container.style.background = 'var(--surface)';
+    container.style.padding = '24px';
+    container.style.borderRadius = '16px';
+    showToast('📖 Reading mode ON');
+  } else {
+    container.style.maxWidth = '';
+    container.style.margin = '';
+    container.style.background = '';
+    container.style.padding = '';
+    container.style.borderRadius = '';
+    showToast('📖 Reading mode OFF');
+  }
+}
+
+function bookmarkPage() {
+  const page = STORY_PAGES[currentPage];
+  if (!page) return;
+  if (!progress.bookmarks.includes(page.page)) {
+    progress.bookmarks.push(page.page);
+    saveProgress();
+    showToast(`🔖 Page ${page.page} bookmarked!`);
+  } else {
+    progress.bookmarks = progress.bookmarks.filter(p => p !== page.page);
+    saveProgress();
+    showToast(`🔖 Bookmark removed from page ${page.page}`);
+  }
+}
+
+function copyPage() {
+  const page = STORY_PAGES[currentPage];
+  if (!page) return;
+  navigator.clipboard.writeText(page.content.replace(/<[^>]*>/g, '')).then(() => {
+    showToast('📋 Page copied to clipboard!');
+  }).catch(() => {
+    showToast('❌ Failed to copy');
+  });
+}
+
+function printPage() {
+  window.print();
+}
+
+/* ============================================================
+   VOCABULARY
+   ============================================================ */
+function showVocab(wordKey) {
+  const vocab = VOCABULARY[wordKey];
+  if (!vocab) {
+    showToast(`No entry found for "${wordKey}"`);
+    return;
+  }
+
+  const content = document.getElementById('vocabContent');
+  content.innerHTML = `
+    <div class="vocab-word">${vocab.word}</div>
+    <div class="vocab-pron">${vocab.pronunciation}</div>
+    <div style="margin-top:6px;"><span class="vocab-pos">${vocab.pos}</span></div>
+    <div class="vocab-row">
+      <div class="vocab-label">বাংলা অর্থ</div>
+      <div class="vocab-value bn-value">${vocab.bn}</div>
+    </div>
+    <div class="vocab-row">
+      <div class="vocab-label">Simple English Meaning</div>
+      <div class="vocab-value">${vocab.en}</div>
+    </div>
+    <div class="vocab-row">
+      <div class="vocab-label">Meaning in Context</div>
+      <div class="vocab-value">${vocab.context}</div>
+    </div>
+    <div class="vocab-row">
+      <div class="vocab-label">Example Sentence</div>
+      <div class="vocab-value" style="font-style:italic;">"${vocab.example}"</div>
+    </div>
+  `;
+
+  document.getElementById('vocabOverlay').classList.add('active');
+
+  // Mark as learned
+  if (!progress.vocabLearned.includes(vocab.word)) {
+    progress.vocabLearned.push(vocab.word);
+    saveProgress();
+  }
+}
+
+function closeVocab(event) {
+  if (event && event.target !== event.currentTarget) return;
+  document.getElementById('vocabOverlay').classList.remove('active');
+}
+
+/* ============================================================
+   VOCABULARY LIST
+   ============================================================ */
+function renderVocabList(filter = 'all', searchTerm = '') {
+  const container = document.getElementById('vocabList');
+  if (!container) return;
+
+  let entries = Object.values(VOCABULARY);
+  if (filter !== 'all') {
+    entries = entries.filter(v => v.word.toUpperCase().startsWith(filter));
+  }
+  if (searchTerm) {
+    const term = searchTerm.toLowerCase();
+    entries = entries.filter(v =>
+      v.word.toLowerCase().includes(term) ||
+      v.bn.includes(term) ||
+      v.en.toLowerCase().includes(term)
+    );
+  }
+
+  entries.sort((a, b) => a.word.localeCompare(b.word));
+
+  container.innerHTML = entries.map(v => `
+    <div class="parchment" style="cursor:pointer; margin-bottom:10px;" onclick="showVocab('${v.word}')">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
+        <strong style="font-size:1.1rem; color:var(--accent-dark);">${v.word}</strong>
+        <span class="vocab-pos">${v.pos}</span>
+      </div>
+      <div class="bn" style="margin-top:6px; color:var(--accent); font-size:0.95rem;">${v.bn}</div>
+      <div style="font-size:0.8rem; color:var(--text-light); margin-top:4px;">${v.en}</div>
+    </div>
+  `).join('');
+
+  if (entries.length === 0) {
+    container.innerHTML = '<p style="color:var(--text-light); font-style:italic;">No words found.</p>';
+  }
+}
+
+function searchVocab(term) {
+  renderVocabList('all', term);
+}
+
+function filterVocab(letter) {
+  renderVocabList(letter);
+  // Update active button styling
+  document.querySelectorAll('#view-vocab .btn-sm').forEach(b => b.classList.remove('btn-primary'));
+  event.target.classList.add('btn-primary');
+}
+
+/* ============================================================
+   CHARACTERS
+   ============================================================ */
+function renderCharacters() {
+  const container = document.getElementById('charactersList');
+  if (!container) return;
+
+  container.innerHTML = CHARACTERS.map(c => `
+    <div class="char-card">
+      <div class="char-header">
+        <div class="char-avatar">${c.avatar}</div>
+        <div>
+          <div class="char-name">${c.name}</div>
+          <div class="char-role">${c.role}</div>
+        </div>
+      </div>
+      <div class="char-section">
+        <div class="char-label">Who is the character?</div>
+        <p>${c.who}</p>
+      </div>
+      <div class="char-section">
+        <div class="char-label">Personality</div>
+        <p>${c.personality}</p>
+      </div>
+      <div class="char-section">
+        <div class="char-label">Important Actions</div>
+        <p>${c.actions}</p>
+      </div>
+      <div class="char-section">
+        <div class="char-label">Relationship with Others</div>
+        <p>${c.relationships}</p>
+      </div>
+      <div class="char-section">
+        <div class="char-label">Role in the Story</div>
+        <p>${c.role}</p>
+      </div>
+      <div class="char-section">
+        <div class="char-label">Character Development</div>
+        <p>${c.development}</p>
+      </div>
+      <div class="char-section">
+        <div class="char-label">Evidence from the Text</div>
+        <p style="font-style:italic;">"${c.evidence}"</p>
+      </div>
+      <div class="char-section">
+        <div class="char-label bn">বাংলা ব্যাখ্যা</div>
+        <p class="bn">${c.bn}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ============================================================
+   THEMES
+   ============================================================ */
+function renderThemes() {
+  const container = document.getElementById('themesList');
+  if (!container) return;
+
+  container.innerHTML = THEMES.map(t => `
+    <div class="theme-card">
+      <div class="theme-title">${t.icon} ${t.title}</div>
+      <p style="margin-top:8px;"><strong>Definition:</strong> ${t.def}</p>
+      <p><strong>Textual Evidence:</strong> ${t.evidence}</p>
+      <p><strong>Explanation:</strong> ${t.explanation}</p>
+      <p class="bn" style="margin-top:8px; padding-top:8px; border-top:1px dashed var(--surface2);"><strong>বাংলা:</strong> ${t.bn}</p>
+      <p style="font-size:0.8rem; color:var(--accent); margin-top:6px;">📌 ${t.exam}</p>
+    </div>
+  `).join('');
+}
+
+/* ============================================================
+   CRITICAL ANALYSIS
+   ============================================================ */
+function renderCritical() {
+  const container = document.getElementById('criticalList');
+  if (!container) return;
+
+  container.innerHTML = CRITICAL_ANALYSIS.map((c, i) => `
+    <div class="parchment">
+      <h3>${i + 1}. ${c.title}</h3>
+      <p>${c.en}</p>
+      <div class="explanation-box active" style="margin-top:10px;">
+        <div class="exp-bn"><strong>বাংলা:</strong> ${c.bn}</div>
+      </div>
+      <p style="font-size:0.8rem; color:var(--accent); margin-top:8px;">📌 ${c.exam}</p>
+    </div>
+  `).join('');
+}
+
+/* ============================================================
+   SAQs
+   ============================================================ */
+function renderSAQs() {
+  const container = document.getElementById('saqList');
+  if (!container) return;
+
+  container.innerHTML = SAQS.map((s, i) => `
+    <div class="parchment">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px; flex-wrap:wrap;">
+        <h3 style="flex:1;">Q${i + 1}. ${s.q}</h3>
+        <span class="vocab-pos">${s.marks} marks</span>
+      </div>
+      <div style="margin-top:10px; padding:12px; background:var(--surface2); border-radius:var(--radius-sm);">
+        <strong>Answer:</strong>
+        <p>${s.ans}</p>
+      </div>
+      <div class="explanation-box active" style="margin-top:10px;">
+        <div class="exp-bn"><strong>বাংলা ব্যাখ্যা:</strong> ${s.bn}</div>
+      </div>
+      <div style="margin-top:8px; font-size:0.8rem;">
+        <strong>Keywords:</strong> ${s.keywords.map(k => `<span style="background:var(--surface2); padding:2px 8px; border-radius:12px; margin:2px; display:inline-block;">${k}</span>`).join('')}
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-sm btn-secondary" onclick="copyText(this)">📋 Copy</button>
+        <button class="btn btn-sm btn-secondary" onclick="printSection(this)">🖨 Print</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ============================================================
+   BROAD QUESTIONS
+   ============================================================ */
+function renderBroad() {
+  const container = document.getElementById('broadList');
+  if (!container) return;
+
+  container.innerHTML = BROAD_QUESTIONS.map((b, i) => `
+    <div class="parchment">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px; flex-wrap:wrap;">
+        <h3 style="flex:1;">Q${i + 1}. ${b.q}</h3>
+        <span class="vocab-pos">${b.marks} marks</span>
+      </div>
+      <div style="margin-top:10px; padding:12px; background:var(--surface2); border-radius:var(--radius-sm);">
+        <strong>Model Answer:</strong>
+        <p style="white-space:pre-line;">${b.ans}</p>
+      </div>
+      <div class="explanation-box active" style="margin-top:10px;">
+        <div class="exp-bn"><strong>বাংলা ব্যাখ্যা:</strong> ${b.bn}</div>
+      </div>
+      <div style="margin-top:8px; font-size:0.8rem;">
+        <strong>Key Points:</strong> ${b.keyPoints.map(k => `<span style="background:var(--surface2); padding:2px 8px; border-radius:12px; margin:2px; display:inline-block;">${k}</span>`).join('')}
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-sm btn-secondary" onclick="copyText(this)">📋 Copy</button>
+        <button class="btn btn-sm btn-secondary" onclick="printSection(this)">🖨 Print</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ============================================================
+   REVISION
+   ============================================================ */
+function renderRevision() {
+  // Already in HTML
+}
+
+function showRevision(type) {
+  const container = document.getElementById('revisionContent');
+  if (!container) return;
+
+  if (type === '1min') {
+    container.innerHTML = `
+      <div class="parchment">
+        <h3>⏱ 1-Minute Revision</h3>
+        <ul style="padding-left:20px; line-height:1.8;">
+          <li>Jimmy Valentine — skilled safecracker, released from prison.</li>
+          <li>Moves to Elmore as Ralph D. Spencer, opens shoe store.</li>
+          <li>Falls in love with Annabel Adams.</li>
+          <li>Detective Ben Price tracks him.</li>
+          <li>Agatha gets trapped in bank vault.</li>
+          <li>Jimmy uses old skills to save her.</li>
+          <li>Ben Price lets him go free — redemption complete.</li>
+        </ul>
+      </div>
+    `;
+  } else if (type === '5min') {
+    container.innerHTML = `
+      <div class="parchment">
+        <h3>⏱ 5-Minute Revision</h3>
+        <h4>Plot</h4>
+        <p>Jimmy Valentine is released from prison. He collects his burglar tools and commits three burglaries. Detective Ben Price recognizes his methods. Jimmy travels to Elmore, meets Annabel Adams, and falls in love. He becomes Ralph D. Spencer and opens a shoe store. He decides to give up crime. Ben Price tracks him to Elmore. Annabel's niece Agatha gets trapped in the bank vault. Jimmy uses his safecracking skills to rescue her. Ben Price witnesses the rescue and lets Jimmy go free.</p>
+        <h4>Characters</h4>
+        <p><strong>Jimmy Valentine:</strong> Protagonist, skilled safecracker, transforms through love. <strong>Annabel Adams:</strong> Banker's daughter, loves Jimmy. <strong>Ben Price:</strong> Detective who shows mercy. <strong>Mr. Adams:</strong> Annabel's father. <strong>Agatha:</strong> Trapped child. <strong>May:</strong> Locks Agatha in vault.</p>
+        <h4>Themes</h4>
+        <p>Love, redemption, transformation, justice vs. mercy, identity, second chances.</p>
+        <h4>Key Quotes</h4>
+        <p>"I've quit the old business-a year ago. I've got a nice store. I'm making an honest living..." — Jimmy</p>
+        <p>"Guess you're mistaken, Mr. Spencer. Don't believe I recognize you." — Ben Price</p>
+      </div>
+    `;
+  } else {
+    renderRevision();
+  }
+}
+
+/* ============================================================
+   QUIZ
+   ============================================================ */
+function startQuiz(category) {
+  currentQuizCategory = category;
+  const questions = QUIZ_DATA[category];
+  if (!questions || questions.length === 0) {
+    showToast('No questions available for this category.');
+    return;
+  }
+
+  quizQuestions = [...questions].sort(() => Math.random() - 0.5);
+  quizIndex = 0;
+  quizScore = 0;
+  quizAnswered = false;
+
+  document.getElementById('quizContainer').classList.add('hidden');
+  document.getElementById('quizActive').classList.remove('hidden');
+  document.getElementById('quizResults').classList.add('hidden');
+
+  renderQuizQuestion();
+}
+
+function renderQuizQuestion() {
+  if (quizIndex >= quizQuestions.length) {
+    endQuiz();
+    return;
+  }
+
+  const q = quizQuestions[quizIndex];
+  document.getElementById('quizProgress').textContent = `Question ${quizIndex + 1}/${quizQuestions.length}`;
+  document.getElementById('quizScore').textContent = `Score: ${quizScore}`;
+  document.getElementById('quizQuestion').textContent = q.q;
+
+  const optionsContainer = document.getElementById('quizOptions');
+  optionsContainer.innerHTML = q.options.map((opt, i) => `
+    <button class="quiz-option" onclick="answerQuiz(${i})" id="quizOpt${i}">${opt}</button>
+  `).join('');
+
+  document.getElementById('quizFeedback').classList.remove('active');
+  document.getElementById('quizNextBtn').style.display = 'none';
+  quizAnswered = false;
+}
+
+function answerQuiz(selected) {
+  if (quizAnswered) return;
+  quizAnswered = true;
+
+  const q = quizQuestions[quizIndex];
+  const isCorrect = selected === q.correct;
+
+  if (isCorrect) quizScore++;
+
+  document.querySelectorAll('.quiz-option').forEach((btn, i) => {
+    btn.classList.add('disabled');
+    if (i === q.correct) btn.classList.add('correct');
+    if (i === selected && !isCorrect) btn.classList.add('wrong');
+  });
+
+  const feedback = document.getElementById('quizFeedback');
+  feedback.classList.add('active');
+  if (isCorrect) {
+    feedback.className = 'quiz-feedback active correct';
+    feedback.innerHTML = '✅ <strong>Correct!</strong>';
+  } else {
+    feedback.className = 'quiz-feedback active wrong';
+    feedback.innerHTML = `❌ <strong>Wrong.</strong> The correct answer is: <strong>${q.options[q.correct]}</strong>`;
+  }
+
+  document.getElementById('quizScore').textContent = `Score: ${quizScore}`;
+  document.getElementById('quizNextBtn').style.display = 'inline-flex';
+}
+
+function nextQuizQuestion() {
+  quizIndex++;
+  renderQuizQuestion();
+}
+
+function endQuiz() {
+  document.getElementById('quizActive').classList.add('hidden');
+  document.getElementById('quizResults').classList.remove('hidden');
+
+  const total = quizQuestions.length;
+  const percent = total > 0 ? Math.round((quizScore / total) * 100) : 0;
+
+  document.getElementById('resultScore').textContent = quizScore;
+  document.getElementById('resultPercent').textContent = percent + '%';
+  document.getElementById('resultCorrect').textContent = quizScore;
+  document.getElementById('resultWrong').textContent = total - quizScore;
+
+  let message = '';
+  if (percent >= 80) message = '🌟 Excellent! You have mastered this section.';
+  else if (percent >= 60) message = '👍 Good job! Review the missed questions.';
+  else if (percent >= 40) message = '📖 Keep studying! You can improve.';
+  else message = '💪 Don\'t give up! Read the text again and retry.';
+
+  document.getElementById('resultMessage').textContent = message;
+
+  // Save best score
+  if (quizScore > progress.quizBest) {
+    progress.quizBest = quizScore;
+    saveProgress();
+  }
+}
+
+/* ============================================================
+   SEARCH
+   ============================================================ */
+function globalSearch(term) {
+  const container = document.getElementById('searchResults');
+  if (!container) return;
+
+  if (!term || term.length < 2) {
+    container.innerHTML = '<p style="color:var(--text-light); font-style:italic;">Type at least 2 characters to search.</p>';
+    return;
+  }
+
+  const lower = term.toLowerCase();
+  const results = [];
+
+  // Search vocabulary
+  Object.values(VOCABULARY).forEach(v => {
+    if (v.word.toLowerCase().includes(lower) || v.bn.includes(term) || v.en.toLowerCase().includes(lower)) {
+      results.push({ type: 'Vocabulary', text: `<strong>${v.word}</strong> — ${v.bn}<br><small>${v.en}</small>`, action: `showVocab('${v.word}')` });
+    }
+  });
+
+  // Search SAQs
+  SAQS.forEach((s, i) => {
+    if (s.q.toLowerCase().includes(lower) || s.ans.toLowerCase().includes(lower)) {
+      results.push({ type: 'SAQ', text: `<strong>Q${i + 1}.</strong> ${s.q}`, action: `navigateTo('saq')` });
+    }
+  });
+
+  // Search Broad Questions
+  BROAD_QUESTIONS.forEach((b, i) => {
+    if (b.q.toLowerCase().includes(lower) || b.ans.toLowerCase().includes(lower)) {
+      results.push({ type: 'Broad Question', text: `<strong>Q${i + 1}.</strong> ${b.q}`, action: `navigateTo('broad')` });
+    }
+  });
+
+  // Search Characters
+  CHARACTERS.forEach(c => {
+    if (c.name.toLowerCase().includes(lower) || c.who.toLowerCase().includes(lower)) {
+      results.push({ type: 'Character', text: `<strong>${c.name}</strong> — ${c.role}`, action: `navigateTo('characters')` });
+    }
+  });
+
+  // Search Themes
+  THEMES.forEach(t => {
+    if (t.title.toLowerCase().includes(lower) || t.def.toLowerCase().includes(lower)) {
+      results.push({ type: 'Theme', text: `<strong>${t.icon} ${t.title}</strong> — ${t.def}`, action: `navigateTo('themes')` });
+    }
+  });
+
+  // Search story text
+  STORY_PAGES.forEach(page => {
+    const text = page.content.replace(/<[^>]*>/g, '');
+    if (text.toLowerCase().includes(lower)) {
+      results.push({ type: 'Story Text', text: `Found in <strong>Page ${page.page}</strong>`, action: `navigateTo('read')` });
+    }
+  });
+
+  if (results.length === 0) {
+    container.innerHTML = '<p style="color:var(--text-light); font-style:italic;">No results found.</p>';
+    return;
+  }
+
+  container.innerHTML = results.slice(0, 20).map(r => `
+    <div class="search-result" onclick="${r.action}">
+      <div class="sr-type">${r.type}</div>
+      <div class="sr-text">${r.text}</div>
+    </div>
+  `).join('');
+}
+
+/* ============================================================
+   PROGRESS TRACKING
+   ============================================================ */
+function loadProgress() {
+  try {
+    const saved = localStorage.getItem('jimmy_valentine_progress');
+    if (saved) {
+      progress = { ...progress, ...JSON.parse(saved) };
+    }
+  } catch (e) {
+    console.warn('Could not load progress:', e);
+  }
+}
+
+function saveProgress() {
+  try {
+    localStorage.setItem('jimmy_valentine_progress', JSON.stringify(progress));
+  } catch (e) {
+    console.warn('Could not save progress:', e);
+  }
+  updateProgressUI();
+}
+
+function updateProgressUI() {
+  const totalPages = STORY_PAGES.length;
+  const pagesRead = progress.pagesRead.length;
+  const pct = Math.min(100, Math.round((pagesRead / totalPages) * 100));
+
+  const circle = document.getElementById('progressCircle');
+  const pctEl = document.getElementById('progressPct');
+  if (circle && pctEl) {
+    const circumference = 2 * Math.PI * 34;
+    const offset = circumference - (pct / 100) * circumference;
+    circle.style.strokeDashoffset = offset;
+    pctEl.textContent = pct + '%';
+  }
+
+  const statPages = document.getElementById('statPagesRead');
+  if (statPages) statPages.textContent = pagesRead;
+  const statVocab = document.getElementById('statVocabLearned');
+  if (statVocab) statVocab.textContent = progress.vocabLearned.length;
+  const statQuiz = document.getElementById('statQuizScore');
+  if (statQuiz) statQuiz.textContent = progress.quizBest;
+  const statBook = document.getElementById('statBookmarks');
+  if (statBook) statBook.textContent = progress.bookmarks.length;
+  const streak = document.getElementById('streakCount');
+  if (streak) streak.textContent = progress.streak;
+}
+
+function resetProgress() {
+  if (confirm('Are you sure you want to reset all progress?')) {
+    progress = {
+      pagesRead: [],
+      vocabLearned: [],
+      quizBest: 0,
+      bookmarks: [],
+      streak: 0,
+      lastVisit: null,
+      achievements: []
+    };
+    saveProgress();
+    showToast('🔄 Progress reset');
+  }
+}
+
+function checkStreak() {
+  const today = new Date().toDateString();
+  if (progress.lastVisit) {
+    const last = new Date(progress.lastVisit).toDateString();
+    const yesterday = new Date(Date.now() - 86400000).toDateString();
+    if (last === yesterday) {
+      progress.streak++;
+    } else if (last !== today) {
+      progress.streak = 1;
+    }
+  } else {
+    progress.streak = 1;
+  }
+  progress.lastVisit = new Date().toISOString();
+  saveProgress();
+}
+
+/* ============================================================
+   TEXT-TO-SPEECH
+   ============================================================ */
+let ttsUtterance = null;
+let ttsSpeed = 1;
+
+function ttsPlay() {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const page = STORY_PAGES[currentPage];
+    if (!page) return;
+    const text = page.content.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    ttsUtterance = new SpeechSynthesisUtterance(text);
+    ttsUtterance.rate = ttsSpeed;
+    ttsUtterance.lang = 'en-US';
+    window.speechSynthesis.speak(ttsUtterance);
+    showToast('🔊 Reading aloud...');
+  } else {
+    showToast('❌ Text-to-speech not supported');
+  }
+}
+
+function ttsPause() {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.pause();
+    showToast('⏸ Paused');
+  }
+}
+
+function ttsStop() {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    showToast('⏹ Stopped');
+  }
+}
+
+function ttsSetSpeed(speed) {
+  ttsSpeed = parseFloat(speed);
+  if (ttsUtterance) ttsUtterance.rate = ttsSpeed;
+}
+
+/* ============================================================
+   THEME TOGGLE
+   ============================================================ */
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('jimmy_theme', next);
+}
+
+function toggleContrast() {
+  document.body.classList.toggle('high-contrast');
+  showToast(document.body.classList.contains('high-contrast') ? '◐ High contrast ON' : '◐ High contrast OFF');
+}
+
+// Load saved theme
+const savedTheme = localStorage.getItem('jimmy_theme');
+if (savedTheme) {
+  document.documentElement.setAttribute('data-theme', savedTheme);
+}
+
+/* ============================================================
+   PWA
+   ============================================================ */
+function initPWA() {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js').catch(() => {
+        // Service worker registration failed — app still works
+      });
+    });
+  }
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById('installBanner').classList.remove('hidden');
+  });
+}
+
+function installPWA() {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choice) => {
+      if (choice.outcome === 'accepted') {
+        showToast('📱 App installed!');
+      }
+      deferredPrompt = null;
+      document.getElementById('installBanner').classList.add('hidden');
+    });
+  } else {
+    showToast('📱 Use your browser menu to install');
+  }
+}
+
+function dismissInstall() {
+  document.getElementById('installBanner').classList.add('hidden');
+}
+
+function checkInstallBanner() {
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    document.getElementById('installBanner').classList.add('hidden');
+  }
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  if (!toast) return;
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+function copyText(btn) {
+  const parent = btn.closest('.parchment');
+  if (!parent) return;
+  const text = parent.innerText;
+  navigator.clipboard.writeText(text).then(() => showToast('📋 Copied!'));
+}
+
+function printSection(btn) {
+  const parent = btn.closest('.parchment');
+  if (!parent) return;
+  const win = window.open('', '_blank');
+  win.document.write(`<html><head><title>Print</title><style>body{font-family:Georgia,serif;padding:20px;line-height:1.6;} .bn{font-family:'Noto Sans Bengali',sans-serif;}</style></head><body>${parent.innerHTML}</body></html>`);
+  win.document.close();
+  win.print();
+}
+
+function printQuestions() {
+  const win = window.open('', '_blank');
+  win.document.write(`<html><head><title>SAQs — Alias Jimmy Valentine</title><style>body{font-family:Georgia,serif;padding:20px;line-height:1.6;} h1{color:#8B5A2B;} .q{margin-bottom:16px;page-break-inside:avoid;}</style></head><body><h1>Alias Jimmy Valentine — SAQs</h1>${SAQS.map((s, i) => `<div class="q"><strong>Q${i + 1}. ${s.q}</strong> (${s.marks} marks)<br><em>Answer:</em> ${s.ans}</div>`).join('')}</body></html>`);
+  win.document.close();
+  win.print();
+}
+
+function printBroadQuestions() {
+  const win = window.open('', '_blank');
+  win.document.write(`<html><head><title>Broad Questions — Alias Jimmy Valentine</title><style>body{font-family:Georgia,serif;padding:20px;line-height:1.6;} h1{color:#8B5A2B;} .q{margin-bottom:20px;page-break-inside:avoid;}</style></head><body><h1>Alias Jimmy Valentine — Broad Questions</h1>${BROAD_QUESTIONS.map((b, i) => `<div class="q"><strong>Q${i + 1}. ${b.q}</strong> (${b.marks} marks)<br><em>Answer:</em> ${b.ans}</div>`).join('')}</body></html>`);
+  win.document.close();
+  win.print();
+}
+
+function printRevisionSheet() {
+  const win = window.open('', '_blank');
+  win.document.write(`<html><head><title>Revision Sheet — Alias Jimmy Valentine</title><style>body{font-family:Georgia,serif;padding:20px;line-height:1.6;} h1{color:#8B5A2B;} h2{color:#5e3a1a;} .bn{font-family:'Noto Sans Bengali',sans-serif;}</style></head><body>
+    <h1>Alias Jimmy Valentine — Revision Sheet</h1>
+    <h2>Story in 10 Points</h2>
+    <ol>
+      <li>Jimmy Valentine released from prison.</li>
+      <li>Collects burglar tools and commits burglaries.</li>
+      <li>Ben Price recognizes his methods.</li>
+      <li>Jimmy arrives in Elmore.</li>
+      <li>Meets Annabel Adams and falls in love.</li>
+      <li>Becomes Ralph D. Spencer, opens shoe store.</li>
+      <li>Decides to give up crime.</li>
+      <li>Ben Price tracks him to Elmore.</li>
+      <li>Agatha trapped in bank vault.</li>
+      <li>Jimmy saves her; Ben Price lets him go free.</li>
+    </ol>
+    <h2>Characters</h2>
+    <ul>
+      <li><strong>Jimmy Valentine / Ralph D. Spencer:</strong> Protagonist, safecracker turned respectable man.</li>
+      <li><strong>Annabel Adams:</strong> Banker's daughter, loves Jimmy.</li>
+      <li><strong>Ben Price:</strong> Detective who shows mercy.</li>
+      <li><strong>Mr. Adams:</strong> Annabel's father, banker.</li>
+      <li><strong>Agatha:</strong> Trapped child.</li>
+      <li><strong>May:</strong> Locks Agatha in vault.</li>
+    </ul>
+    <h2>Themes</h2>
+    <ul>
+      <li>Love as a transformative force</li>
+      <li>Redemption and second chances</li>
+      <li>Justice vs. mercy</li>
+      <li>Identity and change</li>
+      <li>Crime and honesty</li>
+    </ul>
+    <h2>Important Vocabulary</h2>
+    <ul>
+      <li>Rehabilitate — restore to good life</li>
+      <li>Elusive — difficult to catch</li>
+      <li>Cracksman — safe burglar</li>
+      <li>Retribution — punishment</li>
+      <li>Specious — misleading but plausible</li>
+      <li>Guile — cunning deceit</li>
+    </ul>
+  </body></html>`);
+  win.document.close();
+  win.print();
+}
+</script>
+
+</body>
+</html>
