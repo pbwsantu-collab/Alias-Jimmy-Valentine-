@@ -2,13 +2,63 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-<title>Alias Jimmy Valentine — O. Henry | Interactive Textbook</title>
-<meta name="description" content="WBCHSE English Prose: Alias Jimmy Valentine by O. Henry. Interactive reading, Bengali explanations, vocabulary, SAQs, broad questions, and quizzes.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alias Jimmy Valentine — Loading…</title>
+<meta name="description" content="Interactive bilingual (English + Bengali) textbook for O. Henry’s Alias Jimmy Valentine. Click any word for meaning.">
 <meta name="theme-color" content="#8B5A2B">
-<!-- PLACEHOLDER: full content is large; using alternative approach -->
+<style>
+body{font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#f5efe6;color:#5e3a1a}
+#msg{text-align:center;max-width:320px;padding:20px}
+.spin{width:40px;height:40px;border:3px solid #c49a6c;border-top-color:#8B5A2B;border-radius:50%;animation:s 0.8s linear infinite;margin:0 auto 16px}
+@keyframes s{to{transform:rotate(360deg)}}
+a{color:#8B5A2B}
+</style>
 </head>
 <body>
-<p>If you see this, the large file push needs a different method.</p>
+<div id="msg">
+  <div class="spin"></div>
+  <p>Loading Alias Jimmy Valentine…</p>
+  <p style="font-size:0.85rem;opacity:0.75">Click any word for বাংলা অর্থ</p>
+</div>
+<script>
+(async function(){
+  try {
+    // Full interactive lesson (stable commit on this repo)
+    const url = 'https://cdn.jsdelivr.net/gh/pbwsantu-collab/Alias-Jimmy-Valentine-@0d03df71/index.html';
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('fetch failed ' + res.status);
+    let html = await res.text();
+
+    // Inject local vocabulary packs before the main script
+    const inject = '<script src="vocab-extra.js"><\/script>\n<script src="vocab-function-words.js"><\/script>\n';
+    const idx = html.lastIndexOf('<script>');
+    if (idx > 0) html = html.slice(0, idx) + inject + html.slice(idx);
+
+    // Merge packs into VOCABULARY after it is defined
+    html = html.replace(
+      /(const VOCABULARY\s*=\s*\{[\s\S]*?\n\};)/,
+      '$1\nif(window.__VOCAB_EXTRA__){Object.assign(VOCABULARY,window.__VOCAB_EXTRA__);}\n'
+    );
+
+    // Clearer bilingual fallback for any word not yet in the dictionary
+    html = html.replace(
+      /bn:'এই শব্দটির নির্দিষ্ট বাংলা অর্থ অভিধানে খুঁজে নিন। মূল গল্পে এটি ব্যবহৃত হয়েছে।'/,
+      "bn:'এই শব্দটির বাংলা অর্থ: (অভিধানে দেখুন) — গল্পের প্রসঙ্গে ব্যবহৃত হয়েছে।'"
+    );
+    html = html.replace(
+      /en:'This word appears in the story\. Use a dictionary for its exact meaning in this context\.'/,
+      "en:'This word appears in the story. Look up its exact meaning in a dictionary for this context.'"
+    );
+
+    document.open();
+    document.write(html);
+    document.close();
+  } catch (e) {
+    document.getElementById('msg').innerHTML =
+      '<p><strong>Could not load the lesson.</strong></p><p>' + e.message +
+      '</p><p><a href="https://github.com/pbwsantu-collab/Alias-Jimmy-Valentine-">Open on GitHub</a></p>';
+  }
+})();
+</script>
 </body>
 </html>
